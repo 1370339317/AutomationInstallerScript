@@ -1,3 +1,3 @@
-start CloneEmscripten.bat
-start EmsdkInstall.bat
+./CloneEmscripten.bat
+./EmsdkInstall.bat
 @pause
