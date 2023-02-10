@@ -9,6 +9,6 @@
 #  安装：
 <table><tr><td bgcolor=orange>-----------------------------</td></tr></table>
 
-<font color=red>安装点击：AStartInstall.bat</font>
+<font color=red>安装点击：</font>[AStartInstall.bat](file:./AStartInstall.bat)
 
 <table><tr><td bgcolor=orange>-----------------------------</td></tr></table>
