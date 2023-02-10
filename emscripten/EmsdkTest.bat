@@ -1,0 +1,3 @@
+emcc -v
+pause
+pause
