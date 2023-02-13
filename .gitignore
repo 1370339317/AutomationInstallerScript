@@ -6,3 +6,6 @@
 /.vs/ProjectSettings.json
 /.vs/VSWorkspaceState.json
 /.vs/slnx.sqlite
+/.vs/AutomationInstallerScript/v16
+/emscripten/testdemo/a.out.js
+/emscripten/testdemo/a.out.wasm
