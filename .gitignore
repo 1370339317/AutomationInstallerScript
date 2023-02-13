@@ -9,3 +9,5 @@
 /.vs/AutomationInstallerScript/v16
 /emscripten/testdemo/a.out.js
 /emscripten/testdemo/a.out.wasm
+/emscripten/1.test_helloworld/a.out.wasm
+/emscripten/1.test_helloworld/a.out.js
