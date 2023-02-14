@@ -11,13 +11,17 @@
 > 这里必看，请依次往下操作
 
 1. [>点我<](https://my.zerotier.com/) 打开Zerotir主页
+
 2. 注册账号并登录
 ![Zerotir主页](./doc/signup.png)
+
 3. 登录后的页面点击【Create A Netword】按钮创建一个新的组网
 4. 点击创建出的网络条目
 ![Zerotir主页](./doc/createNet.png)
+
 5. 给创建的组网改一个名字，选择组网ID右键复制
 ![Zerotir主页](./doc/netname.png)
+
 6. 按照自己的机器类型，给每个需要组网的电脑都下载对应的客户端安装
     > Windows：[>点我下载<](https://download.zerotier.com/dist/ZeroTier%20One.msi)
    > 
@@ -26,17 +30,27 @@
    > iOS:[>点我下载<](https://apps.apple.com/us/app/zerotier-one/id1084101492)
    > 
    > 安卓:[>点我下载<](https://play.google.com/store/apps/details?id=com.zerotier.one)
+
+
 7. 下载后安装软件，安装完成后右下角出现Zerotir 右键点击【Join New NetWork...】
 ![Zerotir主页](./doc/clickright.png)
+
 8. 在弹出的编辑框中粘贴(步骤5中)复制的ID，点击【Join】
+
 ![Zerotir主页](./doc/join.png)
+
 9. 在电脑右下角托盘找到Zerotir右键，点击刚才加入的网络
+
 10. 勾选以下条目
 ![Zerotir主页](./doc/selectall.png)
+
 11. 重新回到Zerotir主页[[点我]](https://my.zerotier.com/)，选择之前的组网条目
+
 12. 对组网内的的每个机器至少分配一个ip
 ![Zerotir主页](./doc/setip.png)
+
 13. 在组网机器A 输入ipconfig 查看配置是否生效
+
 14. ping 组网内另一台机器，测试内否直通
 ![Zerotir主页](./doc/pingok.png)
 
