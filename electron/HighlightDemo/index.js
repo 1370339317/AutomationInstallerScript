@@ -1,6 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+// const ffi = require('ffi-napi')
 const js_beautify = require('js-beautify');
+const fs = require('fs');
+
+// const Dll = ffi.Library(path.resolve('MsgEditorDll.dll'), {
+//   ReadXmlFile: ['string', ['string']]
+// })
 
 
 function createWindow () {
@@ -13,6 +19,10 @@ function createWindow () {
     }
   });
 
+  // ipcMain.on('ReadConfigFile', (event, filepath) => {
+  //   // const string = Dll.ReadXmlFile(filepath);
+  //   // win.webContents.send('UpdateConfig', string);
+  // });
   win.loadFile('index.html');
 
 }

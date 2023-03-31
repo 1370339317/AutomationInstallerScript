@@ -1,0 +1,18 @@
+.containerdiv {
+  display: flex;
+}
+
+.left {
+  flex: 1;
+  height: 300px;
+  width: 350px;
+  border: 1px solid black;
+}
+
+.right {
+  flex: 1;
+  height: 300px;
+  width: 350px;
+  border: 1px solid black;
+}
+  

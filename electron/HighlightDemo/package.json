@@ -1,0 +1,63 @@
+{
+  "devDependencies": {
+    "electron": "^20.0.0",
+    "electron-builder": "^22.11.7"
+  },
+  "name": "monacoeditor",
+  "description": "<br\\> # Electron����demo������ ## demoʵ�ֹ��ܣ�",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "debug": "^4.3.4",
+    "ffi-napi": "^4.0.3",
+    "js-beautify": "^1.14.7",
+    "monaco": "^1.201704190613.0+9ac64297a3b2ace5240299ba54b03f5029378397",
+    "monaco-editor": "^0.36.1",
+    "ms": "^2.1.3",
+    "nan": "^2.17.0",
+    "node-gyp": "^9.3.1",
+    "node-gyp-build": "^4.6.0",
+    "ref-napi": "^3.0.3",
+    "ref-struct-di": "^1.1.1",
+    "requirejs": "^2.3.6",
+    "xml2js": "^0.4.23"
+  },
+  "build": {
+    "appId": "com.example.my-electron-app",
+    "productName": "My Electron App",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.js",
+      "index.html",
+      "LoadSchema.js",
+      "preload.js",
+      "renderer.js",
+      "Styles.css"
+    ],
+    "extraResources":  { 
+        "from": "./resources",
+        "to": "."
+    },
+    "asar": false,
+    "win": {
+      "target": "portable"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

@@ -1,0 +1,2552 @@
+﻿<body>
+    <classes>
+        <class name="Volume" mask_0="0x1804" mask_1="0x1FE780C" clsix="1">
+            <desc>磁盘卷</desc>
+            <attrs>
+                <attr ix="61" name="DriveType" typename="Mask32"/>
+                <attr ix="63" name="DosName" typename="PoolString"/>
+                <attr ix="64" name="DeviceName" typename="PoolString"/>
+                <attr ix="65" name="SerialNumber" typename="AnsiString"/>
+                <attr ix="66" name="GUID" typename="Guid"/>
+                <attr ix="69" name="ClassName" typename="UnicodeString"/>
+            </attrs>
+        </class>
+        <class name="Dir" container="2" root="1" mask_0="0x304" mask_1="0x1FFFB04" clsix="2">
+            <desc>文件夹</desc>
+            <attrs>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+                <attr ix="68" name="Attributes" typename="Mask32"/>
+            </attrs>
+        </class>
+        <class name="File" container="2" root="1" mask_0="0x28304" mask_1="0x3FB84" clsix="3">
+            <desc>文件</desc>
+            <attrs>
+                <attr ix="11" name="Source" typename="UObject"/>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+                <attr ix="14" name="ModifyTime" typename="Time64"/>
+                <attr ix="12" name="FileSize" typename="Uint64"/>
+                <attr ix="68" name="Attributes" typename="Mask32"/>
+                <attr ix="17" name="Format" typename="Format64"/>
+                <attr ix="16" name="Digest" typename="Digest32"/>
+                <attr ix="32" name="FileFlags" typename="Mask32"/>
+            </attrs>
+        </class>
+        <class name="PE" base="3" container="2" root="1" mask_0="0x50B04" mask_1="0x57B24" clsix="4">
+            <desc>可执行文件</desc>
+            <attrs>
+                <attr ix="21" name="Version" typename="AnsiString"/>
+                <attr ix="15" name="Signer" typename="UnicodeString"/>
+                <attr ix="34" name="Category" typename="Mask64"/>
+                <attr ix="35" name="FileVersion" typename="Version"/>
+                <attr ix="39" name="Desc" typename="UnicodeString"/>
+                <attr ix="38" name="Company" typename="UnicodeString"/>
+                <attr ix="27" name="ProductName" typename="UnicodeString"/>
+                <attr ix="89" name="OriginalName" typename="UnicodeString"/>
+            </attrs>
+        </class>
+        <class name="Hive" mask_0="0x200" mask_1="0x200" clsix="5">
+            <desc>蜂房</desc>
+            <attrs>
+                <attr ix="62" name="FILE" typename="UObject"/>
+                <attr ix="63" name="DosName" typename="PoolString"/>
+                <attr ix="67" name="Win32Name" typename="PoolString"/>
+            </attrs>
+        </class>
+        <class name="RegKey" activeonly="true" container="6" root="5" mask_0="0x204" mask_1="0x1A04" clsix="6">
+            <desc>注册表键</desc>
+            <attrs>
+                <attr ix="14" name="ModifyTime" typename="Time64"/>
+                <attr ix="69" name="ClassName" typename="UnicodeString"/>
+            </attrs>
+        </class>
+        <class name="RegValue" activeonly="true" container="6" root="5" mask_0="0x204" mask_1="0x7A04" clsix="7">
+            <desc>注册表值</desc>
+            <attrs>
+                <attr ix="19" name="DataType" typename="Enum"/>
+                <attr ix="18" name="DataLength" typename="Uint32"/>
+                <attr ix="20" name="Data" typename="Binary"/>
+            </attrs>
+        </class>
+        <class name="Account" mask_0="0x176004" mask_1="0x1FFF804" clsix="8">
+            <desc>账号</desc>
+            <attrs>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+                <attr ix="31" name="UserName" typename="UnicodeString"/>
+                <attr ix="59" name="DisplayName" typename="UnicodeString"/>
+                <attr ix="87" name="HomeDir" typename="UnicodeString"/>
+                <attr ix="55" name="Enabled" typename="Boolean"/>
+                <attr ix="86" name="AccountFlags" typename="Mask32"/>
+                <attr ix="51" name="LastLogon" typename="Time32"/>
+                <attr ix="52" name="LastLogoff" typename="Time32"/>
+                <attr ix="53" name="Groups" typename="UnicodeString"/>
+                <attr ix="39" name="Desc" typename="UnicodeString"/>
+            </attrs>
+        </class>
+        <class name="Service" mask_0="0x66104" mask_1="0x57E984" clsix="9">
+            <desc>服务</desc>
+            <attrs>
+                <attr ix="14" name="ModifyTime" typename="Time64"/>
+                <attr ix="59" name="DisplayName" typename="UnicodeString"/>
+                <attr ix="40" name="PE" typename="UObject"/>
+                <attr ix="33" name="CommandLine" typename="UnicodeString"/>
+                <attr ix="49" name="Account" typename="UObject"/>
+                <attr ix="57" name="StartType" typename="Enum"/>
+                <attr ix="58" name="ServiceType" typename="Mask32"/>
+                <attr ix="39" name="Desc" typename="UnicodeString"/>
+                <attr ix="53" name="Groups" typename="UnicodeString"/>
+                <attr ix="60" name="TagId" typename="Uint32"/>
+                <attr ix="54" name="Dependencies" typename="UnicodeString"/>
+            </attrs>
+        </class>
+        <class name="WebSite" mask_0="0x3800" mask_1="0x1FFF800" clsix="10">
+            <desc>Web站点</desc>
+            <attrs>
+                <attr ix="37" name="URL" typename="AnsiString"/>
+                <attr ix="25" name="RemoteIp" typename="IPv4"/>
+                <attr ix="73" name="RemotePort" typename="Uint16"/>
+            </attrs>
+        </class>
+        <class name="NIC" mask_0="0x1804" mask_1="0x1FFF804" keybased="true" clsix="11">
+            <desc>网络适配器</desc>
+            <attrs>
+                <attr ix="23" name="MAC" typename="MacAddress"/>
+                <attr ix="74" name="IfType" typename="Enum"/>
+                <attr ix="75" name="IfIndex" typename="Uint32"/>
+                <attr ix="66" name="GUID" typename="Guid"/>
+            </attrs>
+        </class>
+        <class name="Sock4" mask_0="0x7C0F000" mask_1="0x7C7F800" keybased="true" clsix="12">
+            <desc>IPv4套接字</desc>
+            <attrs>
+                <attr ix="70" name="NIC" typename="UObject"/>
+                <attr ix="24" name="LocalIp" typename="IPv4"/>
+                <attr ix="25" name="RemoteIp" typename="IPv4"/>
+                <attr ix="72" name="LocalPort" typename="Uint16"/>
+                <attr ix="73" name="RemotePort" typename="Uint16"/>
+                <attr ix="22" name="Protocol" typename="Enum"/>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+                <attr ix="14" name="ModifyTime" typename="Time64"/>
+                <attr ix="78" name="InBytes" typename="Uint64"/>
+                <attr ix="79" name="OutBytes" typename="Uint64"/>
+                <attr ix="48" name="Counter" typename="Uint64"/>
+                <attr ix="17" name="Format" typename="Format64"/>
+                <attr ix="93" name="Entropy" typename="Uint16"/>
+                <attr ix="88" name="DomainName" typename="UnicodeString"/>
+                <attr ix="95" name="AddrClassify" typename="Enum"/>
+                <attr ix="71" name="Direction" typename="Enum"/>
+            </attrs>
+        </class>
+        <class name="Sock6" mask_0="0x7C0F000" mask_1="0x7C7F800" keybased="true" clsix="13">
+            <desc>Socket6</desc>
+            <attrs>
+                <attr ix="70" name="NIC" typename="UObject"/>
+                <attr ix="76" name="LocalIp6" typename="IPv6"/>
+                <attr ix="77" name="RemoteIp6" typename="IPv6"/>
+                <attr ix="72" name="LocalPort" typename="Uint16"/>
+                <attr ix="73" name="RemotePort" typename="Uint16"/>
+                <attr ix="22" name="Protocol" typename="Enum"/>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+                <attr ix="14" name="ModifyTime" typename="Time64"/>
+                <attr ix="78" name="InBytes" typename="Uint64"/>
+                <attr ix="79" name="OutBytes" typename="Uint64"/>
+                <attr ix="48" name="Counter" typename="Uint64"/>
+                <attr ix="17" name="Format" typename="Format64"/>
+                <attr ix="93" name="Entropy" typename="Uint16"/>
+                <attr ix="88" name="DomainName" typename="UnicodeString"/>
+                <attr ix="95" name="AddrClassify" typename="Enum"/>
+                <attr ix="71" name="Direction" typename="Enum"/>
+            </attrs>
+        </class>
+        <class name="Packet" activeonly="true" mask_0="0x800" mask_1="0x800" keybased="true" clsix="14">
+            <desc>数据包</desc>
+            <attrs>
+                <attr ix="20" name="Data" typename="Binary"/>
+            </attrs>
+        </class>
+        <class name="PROC" activeonly="true" mask_0="0x71A04" mask_1="0x1FFFA84" clsix="15">
+            <desc>进程</desc>
+            <attrs>
+                <attr ix="46" name="Parent" typename="PObject"/>
+                <attr ix="28" name="PID" typename="Uint32"/>
+                <attr ix="29" name="SessionId" typename="Uint32"/>
+                <attr ix="40" name="PE" typename="UObject"/>
+                <attr ix="36" name="AttckMatrix" typename="Matrix"/>
+                <attr ix="42" name="ProcessFlags" typename="Mask32"/>
+                <attr ix="49" name="Account" typename="UObject"/>
+                <attr ix="33" name="CommandLine" typename="UnicodeString"/>
+                <attr ix="41" name="SubjectFile" typename="UObject"/>
+                <attr ix="47" name="Modules" typename="UnicodeString"/>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+            </attrs>
+        </class>
+        <class name="Counter" activeonly="true" mask_0="0x4" mask_1="0x1FFF804" clsix="16">
+            <desc>全局计数器</desc>
+            <attrs>
+                <attr ix="48" name="Counter" typename="Uint64"/>
+            </attrs>
+        </class>
+        <class name="Task" mask_0="0x12E104" mask_1="0x1FF904" clsix="17">
+            <desc>任务计划</desc>
+            <attrs>
+                <attr ix="13" name="CreateTime" typename="Time64"/>
+                <attr ix="59" name="DisplayName" typename="UnicodeString"/>
+                <attr ix="80" name="Author" typename="UnicodeString"/>
+                <attr ix="55" name="Enabled" typename="Boolean"/>
+                <attr ix="84" name="ExecuteObject" typename="UObject"/>
+                <attr ix="49" name="Account" typename="UObject"/>
+                <attr ix="83" name="RunLevel" typename="Enum"/>
+                <attr ix="81" name="Triggers" typename="UnicodeString"/>
+                <attr ix="33" name="CommandLine" typename="UnicodeString"/>
+                <attr ix="85" name="TaskFlags" typename="Mask32"/>
+                <attr ix="82" name="Settings" typename="UnicodeString"/>
+                <attr ix="39" name="Desc" typename="UnicodeString"/>
+            </attrs>
+        </class>
+        <class name="Sandbox" mask_0="0x12E004" mask_1="0x1FF804" clsix="18">
+            <desc>沙箱</desc>
+            <attrs>
+                <attr ix="11" name="Source" typename="UObject"/>
+                <attr ix="43" name="SandboxFlags" typename="Mask32"/>
+                <attr ix="36" name="AttckMatrix" typename="Matrix"/>
+                <attr ix="90" name="RCounter" typename="Uint32"/>
+                <attr ix="91" name="WCounter" typename="Uint32"/>
+                <attr ix="92" name="HitCounter" typename="Uint32"/>
+                <attr ix="94" name="Objects" typename="List"/>
+            </attrs>
+        </class>
+        <class name="Device" activeonly="true" mask_0="0x7FA04" mask_1="0x1FFFA84" clsix="19">
+            <desc>设备</desc>
+            <attrs>
+                <attr ix="97" name="SERVICE" typename="UObject"/>
+                <attr ix="60" name="TagId" typename="Uint32"/>
+                <attr ix="98" name="DeviceType" typename="Enum"/>
+                <attr ix="69" name="ClassName" typename="UnicodeString"/>
+                <attr ix="38" name="Company" typename="UnicodeString"/>
+                <attr ix="39" name="Desc" typename="UnicodeString"/>
+                <attr ix="59" name="DisplayName" typename="UnicodeString"/>
+            </attrs>
+        </class>
+    </classes>
+    <attributes>
+        <attr ix="0" type="0x809E" typename="UnicodeString" indb="0" name="Type" desc="类型"/>
+        <attr ix="1" type="0x107" typename="UObject" indb="0" name="Oid" desc="对象ID"/>
+        <attr ix="2" type="0x105" typename="PoolString" indb="0" name="Name" desc="名称"/>
+        <attr ix="3" type="0x107" typename="UObject" indb="0" name="Path" desc="路径"/>
+        <attr ix="4" type="0x107" typename="UObject" indb="0" name="Root" desc="根"/>
+        <attr ix="5" type="0x107" typename="UObject" indb="0" name="Base" desc="基对象"/>
+        <attr ix="6" type="0x107" typename="UObject" indb="0" name="Derived" desc="派生对象"/>
+        <attr ix="7" type="0x107" typename="UObject" indb="0" name="Sandbox" desc="沙箱"/>
+        <attr ix="8" type="0x107" typename="UObject" indb="0" name="Creator" desc="创建者"/>
+        <attr ix="9" type="0x809E" typename="UnicodeString" indb="0" name="FullPath" desc="全路径"/>
+        <attr ix="10" type="0x10B" typename="Mask32" indb="0" name="ObjFlags" desc="对象标记">
+            <value bit="0" sym="indb">库存对象</value>
+            <value bit="1" sym="marked">已标记</value>
+            <value bit="2" sym="indexed">已索引</value>
+            <value bit="3" sym="lost">已丢失</value>
+            <value bit="4" sym="deleted">已删除</value>
+            <value bit="7" sym="pseudo">伪造的</value>
+        </attr>
+        <attr ix="11" type="0x107" typename="UObject" indb="0" name="Source" desc="源对象"/>
+        <attr ix="12" type="0x20D" typename="Uint64" indb="0" name="FileSize" desc="文件字节"/>
+        <attr ix="13" type="0x20E" typename="Time64" indb="0" name="CreateTime" desc="创建时间"/>
+        <attr ix="14" type="0x20E" typename="Time64" indb="0" name="ModifyTime" desc="修改时间"/>
+        <attr ix="15" type="0x809E" typename="UnicodeString" indb="1" name="Signer" desc="签名者"/>
+        <attr ix="16" type="0xC81A" typename="Digest32" indb="1" name="Digest" desc="SM3摘要"/>
+        <attr ix="17" type="0x20F" typename="Format64" indb="0" name="Format" desc="文件格式"/>
+        <attr ix="18" type="0x104" typename="Uint32" indb="0" name="DataLength" desc="数据长度"/>
+        <attr ix="19" type="0x10A" typename="Enum" indb="0" name="DataType" desc="数据类型">
+            <value num="1" sym="REG_SZ">字符串</value>
+            <value num="2" sym="REG_EXPAND_SZ">可扩展字符串</value>
+            <value num="3" sym="REG_BINARY">二级制</value>
+            <value num="4" sym="REG_DWORD">DWORD</value>
+            <value num="5" sym="REG_DWORD_BIG_ENDIAN">DWORD大端</value>
+            <value num="6" sym="REG_LINK">链接</value>
+            <value num="7" sym="REG_MULTI_SZ">多字符串</value>
+            <value num="8" sym="REG_RESOURCE_LIST">资源链表</value>
+            <value num="9" sym="REG_FULL_RESOURCE_DESCRIPTOR">资源描述符</value>
+            <value num="10" sym="REG_RESOURCE_REQUIREMENTS_LIST">资源要求的链表</value>
+            <value num="11" sym="REG_QWORD">QWORD</value>
+        </attr>
+        <attr ix="20" type="0x805D" typename="Binary" indb="1" name="Data" desc="数据"/>
+        <attr ix="21" type="0x805C" typename="AnsiString" indb="1" name="Version" desc="版本串"/>
+        <attr ix="22" type="0x10A" typename="Enum" indb="0" name="Protocol" desc="IP层协议">
+            <value num="1" sym="ICMP">ICMP</value>
+            <value num="6" sym="TCP">TCP</value>
+            <value num="17" sym="UDP">UDP</value>
+            <value num="2" sym="IGMP">IGMP</value>
+            <value num="3" sym="GGP">GGP</value>
+            <value num="4" sym="IPIP">IPIP</value>
+            <value num="5" sym="ST">ST</value>
+            <value num="7" sym="CBT">CBT</value>
+            <value num="8" sym="EGP">EGP</value>
+            <value num="9" sym="IGP">IGP</value>
+            <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+            <value num="11" sym="PUP">PUP</value>
+            <value num="18" sym="MUX">MUX</value>
+            <value num="58" sym="ICMPv6">ICMPv6</value>
+        </attr>
+        <attr ix="23" type="0x18C" typename="MacAddress" indb="0" name="MAC" desc="MAC地址"/>
+        <attr ix="24" type="0x108" typename="IPv4" indb="0" name="LocalIp" desc="本地IP地址"/>
+        <attr ix="25" type="0x108" typename="IPv4" indb="0" name="RemoteIp" desc="远端IP地址"/>
+        <attr ix="26" type="0x805C" typename="AnsiString" indb="1" name="AppProto" desc="应用层协议"/>
+        <attr ix="27" type="0x809E" typename="UnicodeString" indb="1" name="ProductName" desc="产品名"/>
+        <attr ix="28" type="0x104" typename="Uint32" indb="0" name="PID" desc="进程ID"/>
+        <attr ix="29" type="0x104" typename="Uint32" indb="0" name="SessionId" desc="会话ID"/>
+        <attr ix="30" type="0x809E" typename="UnicodeString" indb="1" name="SID" desc="安全标识符"/>
+        <attr ix="31" type="0x809E" typename="UnicodeString" indb="1" name="UserName" desc="用户名"/>
+        <attr ix="32" type="0x10B" typename="Mask32" indb="0" name="FileFlags" desc="文件标志">
+            <value bit="0" sym="tr">可信的</value>
+            <value bit="1" sym="wl">白名单</value>
+            <value bit="2" sym="bl">黑名单</value>
+            <value bit="3" sym="ps">无提示</value>
+            <value bit="4" sym="rj">遇提示阻断</value>
+            <value bit="5" sym="tc">跟踪</value>
+            <value bit="6" sym="au">审计</value>
+            <value bit="7" sym="pro">被保护的</value>
+            <value bit="9" sym="alert">需要注意的</value>
+            <value bit="10" sym="susp">可疑的</value>
+            <value bit="11" sym="guilty">有罪的</value>
+            <value bit="12" sym="sys">系统</value>
+            <value bit="13" sym="itg">完整性</value>
+            <value bit="14" sym="svcs">服务管理器</value>
+            <value bit="15" sym="pol">已被污染</value>
+            <value bit="16" sym="wow">wow64</value>
+            <value bit="17" sym="ia">交互式</value>
+            <value bit="18" sym="adm">管理员</value>
+            <value bit="19" sym="svc">服务进程</value>
+            <value bit="20" sym="rpcsvr">RPC服务</value>
+            <value bit="21" sym="air">飞行模式</value>
+            <value bit="23" sym="super">超级可信</value>
+        </attr>
+        <attr ix="33" type="0x809E" typename="UnicodeString" indb="1" name="CommandLine" desc="命令行"/>
+        <attr ix="34" type="0x210" typename="Mask64" indb="0" name="Category" desc="PE分类">
+            <value bit="0" sym="exe">exe程序</value>
+            <value bit="1" sym="dll">动态连接库</value>
+            <value bit="2" sym="driver">内核程序</value>
+            <value bit="3" sym="native">本机程序</value>
+            <value bit="4" sym="console">控制台程序</value>
+            <value bit="5" sym="gui">GUI程序</value>
+            <value bit="6" sym="dotnet">.NET框架程序</value>
+            <value bit="7" sym="com">COM接口</value>
+            <value bit="8" sym="critical">系统必须的</value>
+            <value bit="9" sym="codesign">有代码签名的</value>
+            <value bit="10" sym="winos">系统程序</value>
+            <value bit="11" sym="svchost">服务宿主</value>
+            <value bit="12" sym="dllhost">动态库宿主</value>
+            <value bit="13" sym="scripthost">脚本主机</value>
+            <value bit="14" sym="explorer">资源浏览器</value>
+            <value bit="15" sym="sysutil">系统工具</value>
+            <value bit="16" sym="knowndll	">KnownDLLs中指定的</value>
+            <value bit="17" sym="servicedll">服务DLL</value>
+            <value bit="18" sym="secpack">Windows认证包</value>
+            <value bit="19" sym="scr">屏幕保护程序</value>
+            <value bit="20" sym="cpl">控制面板程序</value>
+            <value bit="21" sym="ocx">Active控件</value>
+            <value bit="22" sym="rpcserver">RPC服务</value>
+            <value bit="23" sym="msoffice	">office程序</value>
+            <value bit="24" sym="netcfg">网络配置相关</value>
+            <value bit="25" sym="browser">浏览器</value>
+            <value bit="26" sym="webserver">WEB服务器</value>
+            <value bit="27" sym="mailclient">邮件客户端</value>
+            <value bit="28" sym="remote">远程工具</value>
+            <value bit="29" sym="im">即时通讯</value>
+            <value bit="30" sym="downloader">下载器</value>
+            <value bit="31" sym="internet">互联网应用</value>
+            <value bit="32" sym="defense">防御软件</value>
+            <value bit="33" sym="antivirus">杀毒程序</value>
+            <value bit="34" sym="vpn">VPN程序</value>
+            <value bit="35" sym="patcher">补丁程序</value>
+            <value bit="36" sym="shell">加壳的</value>
+            <value bit="37" sym="vm">虚拟化</value>
+            <value bit="38" sym="cipher">密码程序</value>
+            <value bit="39" sym="installer">安装者</value>
+            <value bit="40" sym="database">数据库</value>
+            <value bit="41" sym="ime">输入法</value>
+            <value bit="42" sym="packager">打包压缩程序</value>
+            <value bit="43" sym="wordproc">字处理</value>
+            <value bit="44" sym="designer">辅助设计程序</value>
+            <value bit="45" sym="imageproc">图像处理程序</value>
+            <value bit="46" sym="picviewer">图片查看程序</value>
+            <value bit="47" sym="builder">编译器</value>
+            <value bit="48" sym="financial">金融相关</value>
+            <value bit="49" sym="ide">集成开发环境</value>
+            <value bit="50" sym="player">多媒体播放器</value>
+            <value bit="51" sym="game">游戏</value>
+            <value bit="52" sym="appstore">应用商店</value>
+            <value bit="53" sym="boot">较早启动的</value>
+            <value bit="54" sym="devdrv">设备驱动</value>
+            <value bit="55" sym="invalidsign">具有无效代码签名的</value>
+            <value bit="56" sym="industry">工业软件</value>
+            <value bit="57" sym="large">超大的可执行文件</value>
+            <value bit="63" sym="self">本防御系统自身的</value>
+        </attr>
+        <attr ix="35" type="0x211" typename="Version" indb="0" name="FileVersion" desc="文件版本"/>
+        <attr ix="36" type="0xD21B" typename="Matrix" indb="1" name="AttckMatrix" desc="ATTCK矩阵"/>
+        <attr ix="37" type="0x805C" typename="AnsiString" indb="1" name="URL" desc=""/>
+        <attr ix="38" type="0x809E" typename="UnicodeString" indb="1" name="Company" desc="公司名称"/>
+        <attr ix="39" type="0x809E" typename="UnicodeString" indb="1" name="Desc" desc="描述"/>
+        <attr ix="40" type="0x107" typename="UObject" indb="0" name="PE" desc="PE对象"/>
+        <attr ix="41" type="0x107" typename="UObject" indb="0" name="SubjectFile" desc="主体文件"/>
+        <attr ix="42" type="0x10B" typename="Mask32" indb="0" name="ProcessFlags" desc="进程标记">
+            <value bit="0" sym="tr">可信的</value>
+            <value bit="1" sym="wl">白名单</value>
+            <value bit="2" sym="bl">黑名单</value>
+            <value bit="3" sym="ps">无提示</value>
+            <value bit="4" sym="rj">遇提示阻断</value>
+            <value bit="5" sym="tc">跟踪</value>
+            <value bit="6" sym="au">审计</value>
+            <value bit="7" sym="pro">被保护的</value>
+            <value bit="9" sym="alert">需要注意的</value>
+            <value bit="10" sym="susp">可疑的</value>
+            <value bit="11" sym="guilty">有罪的</value>
+            <value bit="12" sym="sys">系统</value>
+            <value bit="13" sym="itg">完整性</value>
+            <value bit="14" sym="svcs">服务管理器</value>
+            <value bit="15" sym="pol">已被污染</value>
+            <value bit="16" sym="wow">wow64</value>
+            <value bit="17" sym="ia">交互式</value>
+            <value bit="18" sym="adm">管理员</value>
+            <value bit="19" sym="svc">服务进程</value>
+            <value bit="20" sym="rpcsvr">RPC服务</value>
+            <value bit="21" sym="air">飞行模式</value>
+            <value bit="23" sym="super">超级可信</value>
+        </attr>
+        <attr ix="43" type="0x10B" typename="Mask32" indb="0" name="SandboxFlags" desc="沙箱标记">
+            <value bit="0" sym="log">记录命中的动作</value>
+            <value bit="1" sym="obj">记录变化的对象</value>
+            <value bit="4" sym="fs">文件重定向</value>
+            <value bit="5" sym="reg">注册表重定向</value>
+            <value bit="6" sym="merge">重定向时产生合并视图</value>
+            <value bit="7" sym="air">飞行模式</value>
+            <value bit="15" sym="pre">这是一个预置的沙箱</value>
+        </attr>
+        <attr ix="44" type="0x10A" typename="Enum" indb="0" name="RiskLevel" desc="风险级别"/>
+        <attr ix="45" type="0x809E" typename="UnicodeString" indb="0" name="UserType" desc="用户类型"/>
+        <attr ix="46" type="0x215" typename="PObject" indb="0" name="Parent" desc="父对象"/>
+        <attr ix="47" type="0x809E" typename="UnicodeString" indb="0" name="Modules" desc="模块列表"/>
+        <attr ix="48" type="0x20D" typename="Uint64" indb="0" name="Counter" desc="计数"/>
+        <attr ix="49" type="0x107" typename="UObject" indb="0" name="Account" desc="帐号对象"/>
+        <attr ix="50" type="0x10B" typename="Mask32" indb="0" name="Flags" desc="标志"/>
+        <attr ix="51" type="0x109" typename="Time32" indb="0" name="LastLogon" desc="最后登录时间"/>
+        <attr ix="52" type="0x109" typename="Time32" indb="0" name="LastLogoff" desc="最后注销时间"/>
+        <attr ix="53" type="0x809E" typename="UnicodeString" indb="1" name="Groups" desc="隶属的组"/>
+        <attr ix="54" type="0x809E" typename="UnicodeString" indb="1" name="Dependencies" desc="依赖项"/>
+        <attr ix="55" type="0x41" typename="Boolean" indb="0" name="Enabled" desc="已启用"/>
+        <attr ix="56" type="0x41" typename="Boolean" indb="0" name="Present" desc="存在的"/>
+        <attr ix="57" type="0x10A" typename="Enum" indb="0" name="StartType" desc="服务启动类型">
+            <value num="0" sym="boot">启动</value>
+            <value num="1" sym="system">系统</value>
+            <value num="2" sym="auto">自动</value>
+            <value num="3" sym="demand">手动</value>
+            <value num="4" sym="disabled">已禁用</value>
+        </attr>
+        <attr ix="58" type="0x10B" typename="Mask32" indb="0" name="ServiceType" desc="服务类型">
+            <value bit="0" sym="kernel">内核</value>
+            <value bit="1" sym="filesys">文件系统</value>
+            <value bit="2" sym="adapter">适配器</value>
+            <value bit="3" sym="rec">认领器</value>
+            <value bit="4" sym="own">独立进程</value>
+            <value bit="5" sym="share">共享进程</value>
+            <value bit="8" sym="interact">交互式</value>
+        </attr>
+        <attr ix="59" type="0x809E" typename="UnicodeString" indb="1" name="DisplayName" desc="显示名称"/>
+        <attr ix="60" type="0x104" typename="Uint32" indb="0" name="TagId" desc="标记ID"/>
+        <attr ix="61" type="0x10B" typename="Mask32" indb="0" name="DriveType" desc="驱动器类型">
+            <value bit="0" sym="HD">硬盘</value>
+            <value bit="1" sym="R">移动存储</value>
+            <value bit="2" sym="CD">光盘</value>
+            <value bit="3" sym="N">网络</value>
+            <value bit="4" sym="FP">软驱</value>
+            <value bit="5" sym="TP">磁带</value>
+            <value bit="6" sym="VV">虚拟的卷</value>
+            <value bit="7" sym="BOX">沙箱卷</value>
+            <value bit="8" sym="USB">USB接口的</value>
+            <value bit="9" sym="TAG">有安全标记的</value>
+            <value bit="10" sym="ENC">加密的</value>
+            <value bit="11" sym="RAW">未格式化的</value>
+            <value bit="12" sym="RDP">RDP重定向</value>
+            <value bit="31" sym="SYS">系统卷</value>
+        </attr>
+        <attr ix="62" type="0x107" typename="UObject" indb="0" name="FILE" desc="文件对象"/>
+        <attr ix="63" type="0x105" typename="PoolString" indb="0" name="DosName" desc="Dos名"/>
+        <attr ix="64" type="0x105" typename="PoolString" indb="0" name="DeviceName" desc="设备名"/>
+        <attr ix="65" type="0x805C" typename="AnsiString" indb="1" name="SerialNumber" desc="序列号"/>
+        <attr ix="66" type="0xC416" typename="Guid" indb="1" name="GUID" desc="GUID"/>
+        <attr ix="67" type="0x105" typename="PoolString" indb="0" name="Win32Name" desc="Win32名称"/>
+        <attr ix="68" type="0x10B" typename="Mask32" indb="0" name="Attributes" desc="文件属性">
+            <value bit="0" sym="Readonly">只读</value>
+            <value bit="1" sym="Hidden">隐藏</value>
+            <value bit="2" sym="System">系统</value>
+            <value bit="4" sym="Directory">目录</value>
+            <value bit="5" sym="Archive">存档</value>
+            <value bit="6" sym="Device">设备</value>
+            <value bit="7" sym="Normal">普通</value>
+            <value bit="8" sym="Temporary">临时</value>
+            <value bit="9" sym="SparseFile">稀疏</value>
+            <value bit="10" sym="ReparsePoint">解析点</value>
+            <value bit="11" sym="Compressed">压缩</value>
+            <value bit="12" sym="Offline">离线</value>
+            <value bit="13" sym="NotContentIndexed">无内容索引</value>
+            <value bit="14" sym="Encrypted">加密</value>
+            <value bit="16" sym="Virtual">虚拟化</value>
+            <value bit="28" sym="ShellFolder">外壳目录</value>
+        </attr>
+        <attr ix="69" type="0x809E" typename="UnicodeString" indb="1" name="ClassName" desc="类名"/>
+        <attr ix="70" type="0x107" typename="UObject" indb="0" name="NIC" desc="网络接口"/>
+        <attr ix="71" type="0x10A" typename="Enum" indb="0" name="Direction" desc="方向">
+            <value num="0" sym="out">呼出</value>
+            <value num="1" sym="in">传入</value>
+        </attr>
+        <attr ix="72" type="0x83" typename="Uint16" indb="0" name="LocalPort" desc="本地端口"/>
+        <attr ix="73" type="0x83" typename="Uint16" indb="0" name="RemotePort" desc="远程端口"/>
+        <attr ix="74" type="0x10A" typename="Enum" indb="0" name="IfType" desc="接口类型">
+            <value num="1" sym="other">其它</value>
+            <value num="6" sym="ethernet">以太网</value>
+            <value num="7" sym="802.3">802.3</value>
+            <value num="71" sym="802.11"/>
+            <value num="15" sym="FDDI"/>
+            <value num="23" sym="PPP"/>
+            <value num="48" sym="MODEM"/>
+            <value num="94" sym="ADSL"/>
+            <value num="131" sym="TUNNEL"/>
+        </attr>
+        <attr ix="75" type="0x104" typename="Uint32" indb="0" name="IfIndex" desc="接口索引"/>
+        <attr ix="76" type="0xC417" typename="IPv6" indb="1" name="LocalIp6" desc="本地IP地址"/>
+        <attr ix="77" type="0xC417" typename="IPv6" indb="1" name="RemoteIp6" desc="远端IP地址"/>
+        <attr ix="78" type="0x20D" typename="Uint64" indb="0" name="InBytes" desc="流入字节数"/>
+        <attr ix="79" type="0x20D" typename="Uint64" indb="0" name="OutBytes" desc="流出字节数"/>
+        <attr ix="80" type="0x809E" typename="UnicodeString" indb="1" name="Author" desc="作者"/>
+        <attr ix="81" type="0x809E" typename="UnicodeString" indb="1" name="Triggers" desc="触发器"/>
+        <attr ix="82" type="0x809E" typename="UnicodeString" indb="1" name="Settings" desc="设置"/>
+        <attr ix="83" type="0x10A" typename="Enum" indb="0" name="RunLevel" desc="运行级别">
+            <value num="0" sym="LeastPrivilege">普通权限运行</value>
+            <value num="1" sym="HighestAvailable">最高权限运行</value>
+        </attr>
+        <attr ix="84" type="0x107" typename="UObject" indb="0" name="ExecuteObject" desc="执行对象"/>
+        <attr ix="85" type="0x10B" typename="Mask32" indb="0" name="TaskFlags" desc="任务标记">
+            <value bit="0" sym="Interactive">交互式</value>
+            <value bit="1" sym="DeleteWhenDone">完成后删除</value>
+            <value bit="2" sym="Disabled">已禁用</value>
+            <value bit="4" sym="RunOnlyIfIdle">仅当空闲时启动</value>
+            <value bit="5" sym="StopOnIdleEnd">非空闲时结束运行</value>
+            <value bit="6" sym="DisallowStartIfOnBatteries">在使用电池的情况下不启动</value>
+            <value bit="7" sym="StopIfGoingOnBatteries">在即将使用电池时结束运行</value>
+            <value bit="8" sym="RunOnlyIfDocked">仅停靠时运行</value>
+            <value bit="9" sym="Hidden">隐藏</value>
+            <value bit="10" sym="RunOnlyIfNetworkAvailable">仅联网时运行</value>
+            <value bit="11" sym="WakeToRun">在唤醒后重启</value>
+            <value bit="12" sym="SYSTEM_REQUIRED">系统必须</value>
+            <value bit="13" sym="RUN_ONLY_IF_LOGGED_ON">仅登录后运行</value>
+            <value bit="16" sym="AllowStartOnDemand">允许按需运行</value>
+            <value bit="17" sym="AllowHardTerminate">运行强行中止</value>
+            <value bit="18" sym="DisallowStartOnRemoteAppSession">禁止远程会话中运行</value>
+            <value bit="19" sym="UseUnifiedSchedulingEngine">使用统一计划引擎</value>
+        </attr>
+        <attr ix="86" type="0x10B" typename="Mask32" indb="0" name="AccountFlags" desc="账号标记">
+            <value bit="0" sym="Script">脚本</value>
+            <value bit="1" sym="Disabled">已禁用</value>
+            <value bit="3" sym="HomeDirRequired">必须有主目录</value>
+            <value bit="4" sym="AutoLocked">自动锁定</value>
+            <value bit="5" sym="PasswordNotRequired">密码是非必须的</value>
+            <value bit="6" sym="PasswordCantChange">密码不可更改</value>
+            <value bit="7" sym="EncryptedPasswordAllowed">允许加密的口令</value>
+            <value bit="8" sym="Temp">临时复制</value>
+            <value bit="9" sym="Normal">一般的</value>
+            <value bit="11" sym="InterDomainTrust">域间信任</value>
+            <value bit="12" sym="WorkstationTrust">工作站信任</value>
+            <value bit="13" sym="ServerTrust">服务器信任</value>
+            <value bit="16" sym="DontExpirePassword">密码永不过期</value>
+            <value bit="17" sym="Mns">MNS</value>
+            <value bit="18" sym="SmartcardRequired">必须有智能卡</value>
+            <value bit="19" sym="TrustedForDelegation">委托信任</value>
+            <value bit="20" sym="NotDelegated">非委托的</value>
+            <value bit="21" sym="UseDesKeyOnly">仅使用DES密钥</value>
+            <value bit="22" sym="DontRequirePreauth">预认证是非必须的</value>
+            <value bit="23" sym="PasswordExpired">密码已过期</value>
+            <value bit="24" sym="TrustedToAuthenticateForDelegation">信任委托的认证</value>
+            <value bit="25" sym="NoAuthDataRequired">非委托的</value>
+            <value bit="26" sym="PartialSecrets">部分秘密</value>
+            <value bit="27" sym="UseAesKeys">使用AES密钥</value>
+            <value bit="29" sym="DontShowInLogonUI">不在登录界面显示</value>
+            <value bit="30" sym="BlankPassword">空口令</value>
+            <value bit="31" sym="WeakPassword">弱口令</value>
+        </attr>
+        <attr ix="87" type="0x809E" typename="UnicodeString" indb="1" name="HomeDir" desc="主目录"/>
+        <attr ix="88" type="0x809E" typename="UnicodeString" indb="1" name="DomainName" desc="域名"/>
+        <attr ix="89" type="0x809E" typename="UnicodeString" indb="1" name="OriginalName" desc="原始名称"/>
+        <attr ix="90" type="0x104" typename="Uint32" indb="0" name="RCounter" desc="读查计数"/>
+        <attr ix="91" type="0x104" typename="Uint32" indb="0" name="WCounter" desc="改写计数"/>
+        <attr ix="92" type="0x104" typename="Uint32" indb="0" name="HitCounter" desc="命中计数"/>
+        <attr ix="93" type="0x83" typename="Uint16" indb="0" name="Entropy" desc="数据熵"/>
+        <attr ix="94" type="0xFF1F" typename="List" indb="1" name="Objects" desc="对象集合"/>
+        <attr ix="95" type="0x10A" typename="Enum" indb="0" name="AddrClassify" desc="地址分类">
+            <value num="0" sym="invalid">无效的</value>
+            <value num="1" sym="loopback">环回的</value>
+            <value num="2" sym="lan">局域网</value>
+            <value num="3" sym="wan">广域网</value>
+            <value num="4" sym="mcast">组播</value>
+            <value num="5" sym="bcast">广播</value>
+        </attr>
+        <attr ix="96" type="0x809E" typename="UnicodeString" indb="0" name="BusType" desc="总线类型"/>
+        <attr ix="97" type="0x107" typename="UObject" indb="0" name="SERVICE" desc="服务对象"/>
+        <attr ix="98" type="0x10A" typename="Enum" indb="0" name="DeviceType" desc="设备类型">
+            <value num="1" sym="beep">BEEP</value>
+            <value num="2" sym="cd_rom">CD_ROM</value>
+            <value num="3" sym="cd_rom_file_system">CD_ROM_FILE_SYSTEM</value>
+            <value num="4" sym="controller">CONTROLLER</value>
+            <value num="5" sym="datalink">DATALINK</value>
+            <value num="6" sym="dfs">DFS</value>
+            <value num="7" sym="disk">DISK</value>
+            <value num="8" sym="disk_file_system">DISK_FILE_SYSTEM</value>
+            <value num="9" sym="file_system">FILE_SYSTEM</value>
+            <value num="10" sym="inport_port">INPORT_PORT</value>
+            <value num="11" sym="keyboard">KEYBOARD</value>
+            <value num="12" sym="mailslot">MAILSLOT</value>
+            <value num="13" sym="midi_in">MIDI_IN</value>
+            <value num="14" sym="midi_out">MIDI_OUT</value>
+            <value num="15" sym="mouse">MOUSE</value>
+            <value num="16" sym="multi_unc_provider">MULTI_UNC_PROVIDER</value>
+            <value num="17" sym="named_pipe">NAMED_PIPE</value>
+            <value num="18" sym="network">NETWORK</value>
+            <value num="19" sym="network_browser">NETWORK_BROWSER</value>
+            <value num="20" sym="network_file_system">NETWORK_FILE_SYSTEM</value>
+            <value num="21" sym="null">NULL</value>
+            <value num="22" sym="parallel_port">PARALLEL_PORT</value>
+            <value num="23" sym="physical_netcard">PHYSICAL_NETCARD</value>
+            <value num="24" sym="printer">PRINTER</value>
+            <value num="25" sym="scanner">SCANNER</value>
+            <value num="26" sym="serial_mouse_port">SERIAL_MOUSE_PORT</value>
+            <value num="27" sym="serial_port">SERIAL_PORT</value>
+            <value num="28" sym="screen">SCREEN</value>
+            <value num="29" sym="sound">SOUND</value>
+            <value num="30" sym="streams">STREAMS</value>
+            <value num="31" sym="tape">TAPE</value>
+            <value num="32" sym="tape_file_system">TAPE_FILE_SYSTEM</value>
+            <value num="33" sym="transport">TRANSPORT</value>
+            <value num="34" sym="unknown">UNKNOWN</value>
+            <value num="35" sym="video">VIDEO</value>
+            <value num="36" sym="virtual_disk">VIRTUAL_DISK</value>
+            <value num="37" sym="wave_in">WAVE_IN</value>
+            <value num="38" sym="wave_out">WAVE_OUT</value>
+            <value num="39" sym="8042_port">8042_PORT</value>
+            <value num="40" sym="network_redirector">NETWORK_REDIRECTOR</value>
+            <value num="41" sym="battery">BATTERY</value>
+            <value num="42" sym="bus_extender">BUS_EXTENDER</value>
+            <value num="43" sym="modem">MODEM</value>
+            <value num="44" sym="vdm">VDM</value>
+            <value num="45" sym="mass_storage">MASS_STORAGE</value>
+            <value num="46" sym="smb">SMB</value>
+            <value num="47" sym="ks">KS</value>
+            <value num="48" sym="changer">CHANGER</value>
+            <value num="49" sym="smartcard">SMARTCARD</value>
+            <value num="50" sym="acpi">ACPI</value>
+            <value num="51" sym="dvd">DVD</value>
+            <value num="52" sym="fullscreen_video">FULLSCREEN_VIDEO</value>
+            <value num="53" sym="dfs_file_system">DFS_FILE_SYSTEM</value>
+            <value num="54" sym="dfs_volume">DFS_VOLUME</value>
+            <value num="55" sym="serenum">SERENUM</value>
+            <value num="56" sym="termsrv">TERMSRV</value>
+            <value num="57" sym="ksec">KSEC</value>
+            <value num="58" sym="fips">FIPS</value>
+            <value num="59" sym="infiniband">INFINIBAND</value>
+            <value num="62" sym="vmbus">VMBUS</value>
+            <value num="63" sym="crypt_provider">CRYPT_PROVIDER</value>
+            <value num="64" sym="wpd">WPD</value>
+            <value num="65" sym="bluetooth">BLUETOOTH</value>
+            <value num="66" sym="mt_composite">MT_COMPOSITE</value>
+            <value num="67" sym="mt_transport">MT_TRANSPORT</value>
+            <value num="68" sym="biometric">BIOMETRIC</value>
+            <value num="69" sym="pmi">PMI</value>
+            <value num="70" sym="ehstor">EHSTOR</value>
+            <value num="71" sym="devapi">DEVAPI</value>
+            <value num="72" sym="gpio">GPIO</value>
+            <value num="73" sym="usbex">USBEX</value>
+            <value num="80" sym="console">CONSOLE</value>
+            <value num="81" sym="nfp">NFP</value>
+            <value num="82" sym="sysenv">SYSENV</value>
+            <value num="83" sym="virtual_block">VIRTUAL_BLOCK</value>
+            <value num="84" sym="point_of_service">POINT_OF_SERVICE</value>
+            <value num="85" sym="storage_replication">STORAGE_REPLICATION</value>
+            <value num="86" sym="trust_env">TRUST_ENV</value>
+            <value num="87" sym="ucm">UCM</value>
+            <value num="88" sym="ucmtcpci">UCMTCPCI</value>
+            <value num="89" sym="persistent_memory">PERSISTENT_MEMORY</value>
+            <value num="90" sym="nvdimm">NVDIMM</value>
+            <value num="91" sym="holographic">HOLOGRAPHIC</value>
+            <value num="92" sym="sdfxhci">SDFXHCI</value>
+            <value num="93" sym="ucmucsi">UCMUCSI</value>
+        </attr>
+    </attributes>
+    <actions>
+        <action sym="ps.startup" name="启动" code="0x600002000F0F01">
+            <param name="CommandLine" type="0x213" typename="WideString" desc="命令行"/>
+        </action>
+        <action sym="ps.open" name="打开" code="0x800001000F0F01">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="T">终止</value>
+                <value bit="1" sym="CT">创建线程</value>
+                <value bit="2" sym="SS">设置会话ID</value>
+                <value bit="3" sym="VO">内存操作</value>
+                <value bit="4" sym="VR">读内存</value>
+                <value bit="5" sym="VW">写内存</value>
+                <value bit="6" sym="DH">复制句柄</value>
+                <value bit="7" sym="CP">创建进程</value>
+                <value bit="8" sym="SQ">设置配额</value>
+                <value bit="9" sym="SI">设置信息</value>
+                <value bit="10" sym="QI">查询信息</value>
+                <value bit="11" sym="SR">挂起唤醒</value>
+                <value bit="12" sym="QL">查询配额</value>
+            </param>
+        </action>
+        <action sym="ps.exit" name="结束" code="0xC00004000F0F01">
+            <param name="ExitCode" type="0x104" typename="Uint32" desc="退出码"/>
+        </action>
+        <action sym="ps.call" name="调用API" code="0x100000800000F01">
+            <param name="Library" type="0x213" typename="WideString" desc="库名称"/>
+            <param name="Fuction" type="0x213" typename="WideString" desc="函数名称"/>
+            <param name="ParamStr" type="0x809E" typename="UnicodeString" desc="字符串参数"/>
+            <param name="Param64" type="0x20D" typename="Uint64" desc="Uint64参数"/>
+            <param name="Param32" type="0x104" typename="Uint32" desc="Uint32参数"/>
+            <param name="ParamBin" type="0x214" typename="PBinary" desc="二进制参数"/>
+        </action>
+        <action sym="ps.inject" name="注入" code="0x1410010040F0F01">
+            <param name="Type" type="0x213" typename="WideString" desc="注入动作类型"/>
+            <param name="Address" type="0x20D" typename="Uint64" desc="地址"/>
+            <param name="Length" type="0x104" typename="Uint32" desc="长度"/>
+            <param name="Data" type="0x214" typename="PBinary" desc="数据"/>
+        </action>
+        <action sym="ps.loadself" name="装载EXE" code="0x181002000040F01"/>
+        <action sym="ps.loadntdll" name="装载NTDLL" code="0x1C2002000040F01"/>
+        <action sym="ps.load" name="装载" code="0x200002000040F01"/>
+        <action sym="ps.set" name="设置" code="0x2600040000F0F01">
+            <param name="InfoClass" type="0x10A" typename="Enum" desc="信息类"/>
+            <param name="InfoData" type="0x214" typename="PBinary" desc="数据"/>
+        </action>
+        <action sym="ps.kill" name="终止" code="0x2A00100000F0F01">
+            <param name="ExitCode" type="0x104" typename="Uint32"/>
+        </action>
+        <action sym="ps.unpack" name="脱壳" code="0x2E1080000040F01"/>
+        <action sym="ps.syscall" name="系统调用" code="0x301000800000F01">
+            <param name="Name" type="0x213" typename="WideString" desc="调用名称"/>
+            <param name="ParamStr" type="0x809E" typename="UnicodeString" desc="字符串参数"/>
+            <param name="Param1" type="0x104" typename="Uint32" desc="Uint32参数1"/>
+            <param name="Param2" type="0x104" typename="Uint32" desc="Uint32参数2"/>
+            <param name="ParamBin" type="0x214" typename="PBinary" desc="二进制参数"/>
+        </action>
+        <action sym="ps.postsyscall" name="系统调用后" code="0x360000800000F01">
+            <param name="Name" type="0x210" typename="Mask64" desc="调用名称"/>
+            <param name="Status" type="0x104" typename="Uint32" desc="返回值"/>
+            <param name="Total" type="0x210" typename="Mask64" desc="累计的调用标记"/>
+        </action>
+        <action sym="ps.dcom" name="DCOM调用" code="0x3A2000800000F01">
+            <param name="Type" type="0x10A" typename="Enum" desc="调用名称">
+                <value num="1" sym="RegisterClsid">注册</value>
+                <value num="2" sym="CreateInstance">创建示例</value>
+                <value num="3" sym="Call">调用</value>
+                <value num="4" sym="Rpc">RPC调用</value>
+            </param>
+            <param name="Name" type="0x809E" typename="UnicodeString" desc="相关的名字"/>
+            <param name="Uuid" type="0x809E" typename="UnicodeString" desc="UUID"/>
+            <param name="ParamNumber" type="0x104" typename="Uint32" desc="Uint32参数"/>
+            <param name="ParamStr" type="0x809E" typename="UnicodeString" desc="字符串参数"/>
+        </action>
+        <action sym="ps.wmi" name="WMI调用" code="0x3E3000800000F01">
+            <param name="Type" type="0x10A" typename="Enum" desc="调用名称">
+                <value num="1" sym="Get">获取对象</value>
+                <value num="2" sym="Enum">枚举实例</value>
+                <value num="3" sym="Delete">删除实例</value>
+                <value num="4" sym="Query">查询</value>
+                <value num="5" sym="Notify">通知</value>
+                <value num="6" sym="Method">方法</value>
+            </param>
+            <param name="WQL" type="0x809E" typename="UnicodeString" desc="WQL"/>
+            <param name="ClsName" type="0x809E" typename="UnicodeString" desc="类名"/>
+            <param name="Param" type="0x809E" typename="UnicodeString" desc="字符串参数"/>
+        </action>
+        <action sym="dir.create" name="新建" code="0x420000200020F02">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="LD">列出</value>
+                <value bit="1" sym="AF">添加文件</value>
+                <value bit="2" sym="AS">添加子目录</value>
+                <value bit="3" sym="RE">读EA</value>
+                <value bit="4" sym="WE">写EA</value>
+                <value bit="5" sym="DC">删除子项</value>
+                <value bit="6" sym="T">遍历</value>
+                <value bit="7" sym="RA">读属性</value>
+                <value bit="8" sym="WA">写属性</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="20" sym="S">同步</value>
+                <value bit="24" sym="ASS">系统安全</value>
+            </param>
+            <param name="CreateOptions" type="0x10B" typename="Mask32" desc="选项">
+                <value bit="0" sym="Directory">目录</value>
+                <value bit="1" sym="WriteThrough">写穿透</value>
+                <value bit="2" sym="SequentialOnly">仅顺序访问</value>
+                <value bit="3" sym="NoBuffering">无缓冲</value>
+                <value bit="4" sym="SyncIoAlert">IO警报</value>
+                <value bit="5" sym="SyncIoNonAlert">无IO警报</value>
+                <value bit="6" sym="NonDirectory">非目录</value>
+                <value bit="7" sym="CreateTreeConnection">创建树连接</value>
+                <value bit="8" sym="CompleteIfOplocked">如有机会锁则完成</value>
+                <value bit="9" sym="NoEaKnowledge">无EA</value>
+                <value bit="10" sym="OpenRemoteInstance">打开远程实例</value>
+                <value bit="11" sym="RandomAccess">随机访问</value>
+                <value bit="12" sym="DeleteOnClose">关闭时删除</value>
+                <value bit="13" sym="OpenByFileId">按ID打开</value>
+                <value bit="14" sym="OpenForBackupIntent">备份意图</value>
+                <value bit="15" sym="NoCompression">非压缩</value>
+                <value bit="16" sym="OpenRequiringOplock">请求机会锁</value>
+                <value bit="17" sym="DisallowExclusive">禁止独占</value>
+                <value bit="20" sym="ReserveOpFilter">请求过滤器机会锁</value>
+                <value bit="21" sym="OpenReparsePoint">打开解析点</value>
+                <value bit="22" sym="OpenNoRecall">FILE_OPEN_NO_RECALL</value>
+                <value bit="23" sym="OpenForFreeSpaceQuery">FILE_OPEN_FOR_FREE_SPACE_QUERY</value>
+            </param>
+            <param name="FileAttributes" type="0x10B" typename="Mask32" desc="属性">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+            <param name="ShareAccess" type="0x10B" typename="Mask32" desc="共享">
+                <value bit="0" sym="FILE_SHARE_READ">读</value>
+                <value bit="1" sym="FILE_SHARE_WRITE">写</value>
+                <value bit="2" sym="FILE_SHARE_DELETE">删除</value>
+            </param>
+        </action>
+        <action sym="dir.open" name="打开" code="0x460000100020F02">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="LD">列出</value>
+                <value bit="1" sym="AF">添加文件</value>
+                <value bit="2" sym="AS">添加子目录</value>
+                <value bit="3" sym="RE">读EA</value>
+                <value bit="4" sym="WE">写EA</value>
+                <value bit="5" sym="DC">删除子项</value>
+                <value bit="6" sym="T">遍历</value>
+                <value bit="7" sym="RA">读属性</value>
+                <value bit="8" sym="WA">写属性</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="20" sym="S">同步</value>
+                <value bit="24" sym="ASS">系统安全</value>
+            </param>
+            <param name="CreateOptions" type="0x10B" typename="Mask32" desc="选项">
+                <value bit="0" sym="Directory">目录</value>
+                <value bit="1" sym="WriteThrough">写穿透</value>
+                <value bit="2" sym="SequentialOnly">仅顺序访问</value>
+                <value bit="3" sym="NoBuffering">无缓冲</value>
+                <value bit="4" sym="SyncIoAlert">IO警报</value>
+                <value bit="5" sym="SyncIoNonAlert">无IO警报</value>
+                <value bit="6" sym="NonDirectory">非目录</value>
+                <value bit="7" sym="CreateTreeConnection">创建树连接</value>
+                <value bit="8" sym="CompleteIfOplocked">如有机会锁则完成</value>
+                <value bit="9" sym="NoEaKnowledge">无EA</value>
+                <value bit="10" sym="OpenRemoteInstance">打开远程实例</value>
+                <value bit="11" sym="RandomAccess">随机访问</value>
+                <value bit="12" sym="DeleteOnClose">关闭时删除</value>
+                <value bit="13" sym="OpenByFileId">按ID打开</value>
+                <value bit="14" sym="OpenForBackupIntent">备份意图</value>
+                <value bit="15" sym="NoCompression">非压缩</value>
+                <value bit="16" sym="OpenRequiringOplock">请求机会锁</value>
+                <value bit="17" sym="DisallowExclusive">禁止独占</value>
+                <value bit="20" sym="ReserveOpFilter">请求过滤器机会锁</value>
+                <value bit="21" sym="OpenReparsePoint">打开解析点</value>
+                <value bit="22" sym="OpenNoRecall">FILE_OPEN_NO_RECALL</value>
+                <value bit="23" sym="OpenForFreeSpaceQuery">FILE_OPEN_FOR_FREE_SPACE_QUERY</value>
+            </param>
+            <param name="FileAttributes" type="0x10B" typename="Mask32" desc="属性">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+            <param name="ShareAccess" type="0x10B" typename="Mask32" desc="共享">
+                <value bit="0" sym="FILE_SHARE_READ">读</value>
+                <value bit="1" sym="FILE_SHARE_WRITE">写</value>
+                <value bit="2" sym="FILE_SHARE_DELETE">删除</value>
+            </param>
+        </action>
+        <action sym="dir.traverse" name="遍历" code="0x4A0000800020F02">
+            <param name="Filter" type="0x809E" typename="UnicodeString"/>
+            <param name="SingleEntry" type="0x41" typename="Boolean"/>
+            <param name="InfoClass" type="0x104" typename="Uint32"/>
+            <param name="BufferLength" type="0x104" typename="Uint32"/>
+        </action>
+        <action sym="dir.enum" name="枚举" code="0x4C1000800020F02">
+            <param name="FileName" type="0x809E" typename="UnicodeString"/>
+            <param name="FileAttributes" type="0x10B" typename="Mask32">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+        </action>
+        <action sym="dir.move" name="移动" code="0x520020002020F02">
+            <param name="Replace" type="0x41" typename="Boolean" desc="如果目标已存在，是否替换"/>
+            <param name="NewName" type="0x809E" typename="UnicodeString" desc="新名字"/>
+            <param name="NewPath" type="0x809E" typename="UnicodeString" desc="新路径"/>
+        </action>
+        <action sym="dir.rename" name="重命名" code="0x561020002020F02">
+            <param name="Replace" type="0x41" typename="Boolean" desc="如果目标已存在，是否替换"/>
+            <param name="NewName" type="0x809E" typename="UnicodeString" desc="新名字"/>
+        </action>
+        <action sym="dir.delete" name="删除" code="0x5A0010000020F02"/>
+        <action sym="dir.set" name="设置" code="0x5E0004000020F02">
+            <param name="Attributes" type="0x10B" typename="Mask32" desc="属性">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+            <param name="CreationTime" type="0x20E" typename="Time64" desc="创建时间"/>
+            <param name="LastAccessTime" type="0x20E" typename="Time64" desc="访问时间"/>
+            <param name="LastWriteTime" type="0x20E" typename="Time64" desc="写入时间"/>
+        </action>
+        <action sym="dir.setlink" name="设置链接" code="0x620004002020F02">
+            <param name="Type" type="0x10A" typename="Enum" desc="链接类型">
+                <value num="0" sym="HardLink">硬链接</value>
+                <value num="1" sym="RelativeLink">相对的符号链接（无变换客体）</value>
+                <value num="2" sym="SymbolicLink">符号链接</value>
+                <value num="3" sym="Mount">装配点</value>
+                <value num="4" sym="Unmount">删除装配点</value>
+            </param>
+            <param name="NewPath" type="0x809E" typename="UnicodeString" desc="新路径"/>
+        </action>
+        <action sym="dir.setsec" name="设置安全" code="0x663004000020F02">
+            <param name="Info" type="0x10B" typename="Mask32" desc="信息">
+                <value bit="0" sym="O">Owner</value>
+                <value bit="1" sym="G">Group</value>
+                <value bit="2" sym="D">DACL</value>
+                <value bit="3" sym="S">SACL</value>
+            </param>
+            <param name="SD" type="0x214" typename="PBinary" desc="安全描述符"/>
+        </action>
+        <action sym="file.create" name="新建" code="0x6A0000200030F02">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="RD">读</value>
+                <value bit="1" sym="WD">写</value>
+                <value bit="2" sym="AD">追加</value>
+                <value bit="3" sym="RE">读EA</value>
+                <value bit="4" sym="WE">写EA</value>
+                <value bit="6" sym="E">执行</value>
+                <value bit="7" sym="RA">读属性</value>
+                <value bit="8" sym="WA">写属性</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="20" sym="S">同步</value>
+                <value bit="24" sym="ASS">系统安全</value>
+            </param>
+            <param name="CreateOptions" type="0x10B" typename="Mask32" desc="选项">
+                <value bit="0" sym="Directory">目录</value>
+                <value bit="1" sym="WriteThrough">写穿透</value>
+                <value bit="2" sym="SequentialOnly">仅顺序访问</value>
+                <value bit="3" sym="NoBuffering">无缓冲</value>
+                <value bit="4" sym="SyncIoAlert">IO警报</value>
+                <value bit="5" sym="SyncIoNonAlert">无IO警报</value>
+                <value bit="6" sym="NonDirectory">非目录</value>
+                <value bit="7" sym="CreateTreeConnection">创建树连接</value>
+                <value bit="8" sym="CompleteIfOplocked">如有机会锁则完成</value>
+                <value bit="9" sym="NoEaKnowledge">无EA</value>
+                <value bit="10" sym="OpenRemoteInstance">打开远程实例</value>
+                <value bit="11" sym="RandomAccess">随机访问</value>
+                <value bit="12" sym="DeleteOnClose">关闭时删除</value>
+                <value bit="13" sym="OpenByFileId">按ID打开</value>
+                <value bit="14" sym="OpenForBackupIntent">备份意图</value>
+                <value bit="15" sym="NoCompression">非压缩</value>
+                <value bit="16" sym="OpenRequiringOplock">请求机会锁</value>
+                <value bit="17" sym="DisallowExclusive">禁止独占</value>
+                <value bit="20" sym="ReserveOpFilter">请求过滤器机会锁</value>
+                <value bit="21" sym="OpenReparsePoint">打开解析点</value>
+                <value bit="22" sym="OpenNoRecall">FILE_OPEN_NO_RECALL</value>
+                <value bit="23" sym="OpenForFreeSpaceQuery">FILE_OPEN_FOR_FREE_SPACE_QUERY</value>
+            </param>
+            <param name="FileAttributes" type="0x10B" typename="Mask32" desc="属性">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+            <param name="ShareAccess" type="0x10B" typename="Mask32">
+                <value bit="0" sym="FILE_SHARE_READ">读</value>
+                <value bit="1" sym="FILE_SHARE_WRITE">写</value>
+                <value bit="2" sym="FILE_SHARE_DELETE">删除</value>
+            </param>
+        </action>
+        <action sym="file.open" name="打开" code="0x6E0000100030F02">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="RD">读</value>
+                <value bit="1" sym="WD">写</value>
+                <value bit="2" sym="AD">追加</value>
+                <value bit="3" sym="RE">读EA</value>
+                <value bit="4" sym="WE">写EA</value>
+                <value bit="6" sym="E">执行</value>
+                <value bit="7" sym="RA">读属性</value>
+                <value bit="8" sym="WA">写属性</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="20" sym="S">同步</value>
+                <value bit="24" sym="ASS">系统安全</value>
+            </param>
+            <param name="CreateOptions" type="0x10B" typename="Mask32" desc="选项">
+                <value bit="0" sym="Directory">目录</value>
+                <value bit="1" sym="WriteThrough">写穿透</value>
+                <value bit="2" sym="SequentialOnly">仅顺序访问</value>
+                <value bit="3" sym="NoBuffering">无缓冲</value>
+                <value bit="4" sym="SyncIoAlert">IO警报</value>
+                <value bit="5" sym="SyncIoNonAlert">无IO警报</value>
+                <value bit="6" sym="NonDirectory">非目录</value>
+                <value bit="7" sym="CreateTreeConnection">创建树连接</value>
+                <value bit="8" sym="CompleteIfOplocked">如有机会锁则完成</value>
+                <value bit="9" sym="NoEaKnowledge">无EA</value>
+                <value bit="10" sym="OpenRemoteInstance">打开远程实例</value>
+                <value bit="11" sym="RandomAccess">随机访问</value>
+                <value bit="12" sym="DeleteOnClose">关闭时删除</value>
+                <value bit="13" sym="OpenByFileId">按ID打开</value>
+                <value bit="14" sym="OpenForBackupIntent">备份意图</value>
+                <value bit="15" sym="NoCompression">非压缩</value>
+                <value bit="16" sym="OpenRequiringOplock">请求机会锁</value>
+                <value bit="17" sym="DisallowExclusive">禁止独占</value>
+                <value bit="20" sym="ReserveOpFilter">请求过滤器机会锁</value>
+                <value bit="21" sym="OpenReparsePoint">打开解析点</value>
+                <value bit="22" sym="OpenNoRecall">FILE_OPEN_NO_RECALL</value>
+                <value bit="23" sym="OpenForFreeSpaceQuery">FILE_OPEN_FOR_FREE_SPACE_QUERY</value>
+            </param>
+            <param name="FileAttributes" type="0x10B" typename="Mask32" desc="属性">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+            <param name="ShareAccess" type="0x10B" typename="Mask32">
+                <value bit="0" sym="FILE_SHARE_READ">读</value>
+                <value bit="1" sym="FILE_SHARE_WRITE">写</value>
+                <value bit="2" sym="FILE_SHARE_DELETE">删除</value>
+            </param>
+        </action>
+        <action sym="file.written" name="写关闭" code="0x721001003030F02">
+            <param name="Method" type="0x10A" typename="Enum" desc="方式">
+                <value num="0" sym="new">新建</value>
+                <value num="1" sym="modify">改写</value>
+                <value num="2" sym="copy">复制</value>
+                <value num="3" sym="unpack">解包</value>
+                <value num="4" sym="enc">加密</value>
+                <value num="5" sym="dec">解密</value>
+                <value num="6" sym="pack">打包</value>
+                <value num="7" sym="senc">自加密</value>
+                <value num="8" sym="sdec">自解密</value>
+            </param>
+            <param name="Bytes" type="0x20D" typename="Uint64" desc="写入字节数"/>
+            <param name="Delta" type="0x20D" typename="Uint64" desc="长度变化"/>
+        </action>
+        <action sym="file.set" name="设置" code="0x760004000030F02">
+            <param name="Attributes" type="0x10B" typename="Mask32" desc="属性">
+                <value bit="0" sym="Readonly">只读</value>
+                <value bit="1" sym="Hidden">隐藏</value>
+                <value bit="2" sym="System">系统</value>
+                <value bit="4" sym="Directory">目录</value>
+                <value bit="5" sym="Archive">存档</value>
+                <value bit="6" sym="Device">设备</value>
+                <value bit="7" sym="Normal">普通</value>
+                <value bit="8" sym="Temporary">临时</value>
+                <value bit="9" sym="SparseFile">稀疏</value>
+                <value bit="10" sym="ReparsePoint">解析点</value>
+                <value bit="11" sym="Compressed">压缩</value>
+                <value bit="12" sym="Offline">离线</value>
+                <value bit="13" sym="NotContentIndexed">无内容索引</value>
+                <value bit="14" sym="Encrypted">加密</value>
+                <value bit="16" sym="Virtual">虚拟化</value>
+                <value bit="28" sym="ShellFolder">外壳目录</value>
+            </param>
+            <param name="CreationTime" type="0x20E" typename="Time64" desc="创建时间"/>
+            <param name="LastAccessTime" type="0x20E" typename="Time64" desc="访问时间"/>
+            <param name="LastWriteTime" type="0x20E" typename="Time64" desc="写入时间"/>
+        </action>
+        <action sym="file.setlen" name="设置长度" code="0x7A1004000030F02">
+            <param name="NewLength" type="0x20D" typename="Uint64" desc="新长度"/>
+        </action>
+        <action sym="file.setlink" name="设置链接" code="0x7E2004003030F02">
+            <param name="Type" type="0x10A" typename="Enum" desc="链接类型">
+                <value num="0" sym="HardLink">硬链接</value>
+                <value num="1" sym="RelativeLink">相对的符号链接（无变换客体）</value>
+                <value num="2" sym="SymbolicLink">符号链接</value>
+                <value num="3" sym="Mount">装配点</value>
+                <value num="4" sym="Unmount">删除装配点</value>
+            </param>
+            <param name="NewPath" type="0x809E" typename="UnicodeString" desc="新路径"/>
+        </action>
+        <action sym="file.setsec" name="设置安全" code="0x823004000030F02">
+            <param name="Info" type="0x10B" typename="Mask32" desc="信息">
+                <value bit="0" sym="O">Owner</value>
+                <value bit="1" sym="G">Group</value>
+                <value bit="2" sym="D">DACL</value>
+                <value bit="3" sym="S">SACL</value>
+            </param>
+            <param name="SD" type="0x214" typename="PBinary" desc="安全描述符"/>
+        </action>
+        <action sym="file.writepe" name="写PE" code="0x862001000030F02"/>
+        <action sym="file.query" name="查询" code="0x8A0008000030F02"/>
+        <action sym="file.rename" name="重命名" code="0x8E1020003030F02">
+            <param name="Replace" type="0x41" typename="Boolean" desc="如果目标已存在，是否替换"/>
+            <param name="NewName" type="0x809E" typename="UnicodeString" desc="新名字"/>
+        </action>
+        <action sym="file.move" name="移动" code="0x920020003030F02">
+            <param name="Replace" type="0x41" typename="Boolean" desc="如果目标已存在，是否替换"/>
+            <param name="NewName" type="0x809E" typename="UnicodeString" desc="新名字"/>
+            <param name="NewPath" type="0x809E" typename="UnicodeString" desc="新路径"/>
+        </action>
+        <action sym="file.read" name="读取" code="0x941002000030F02">
+            <param name="Bytes" type="0x20D" typename="Uint64" desc="读取字节数"/>
+            <param name="IsFull" type="0x41" typename="Boolean" desc="完整读取"/>
+            <param name="IsContinuous" type="0x41" typename="Boolean" desc="连续"/>
+        </action>
+        <action sym="file.restore" name="还原" code="0x9A3020000030F02">
+            <param name="NewPath" type="0x213" typename="WideString" desc="新路径"/>
+        </action>
+        <action sym="file.delete" name="删除" code="0x9E0010000030F02"/>
+        <action sym="file.download" name="下载" code="0xA2110000C030F02"/>
+        <action sym="key.create" name="新建" code="0xA60000200060F03">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="QV">查询值</value>
+                <value bit="1" sym="WV">设置值</value>
+                <value bit="2" sym="CSK">创建子键</value>
+                <value bit="3" sym="ESK">枚举子键</value>
+                <value bit="4" sym="KN">通知</value>
+                <value bit="5" sym="CL">创建链接</value>
+                <value bit="8" sym="W64">64位</value>
+                <value bit="9" sym="W32">32位</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="20" sym="S">同步</value>
+                <value bit="24" sym="ASS">系统安全</value>
+            </param>
+            <param name="CreateOptions" type="0x10B" typename="Mask32" desc="选项">
+                <value bit="0" sym="Volatile">异变的</value>
+                <value bit="1" sym="CreateLink">创建链接</value>
+                <value bit="2" sym="BackupRestore">备份还原</value>
+                <value bit="3" sym="OpenLink">打开链接</value>
+            </param>
+        </action>
+        <action sym="key.open" name="打开" code="0xAA0000100060F03">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="QV">查询值</value>
+                <value bit="1" sym="WV">设置值</value>
+                <value bit="2" sym="CSK">创建子键</value>
+                <value bit="3" sym="ESK">枚举子键</value>
+                <value bit="4" sym="KN">通知</value>
+                <value bit="5" sym="CL">创建链接</value>
+                <value bit="8" sym="W64">64位</value>
+                <value bit="9" sym="W32">32位</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="20" sym="S">同步</value>
+                <value bit="24" sym="ASS">系统安全</value>
+            </param>
+        </action>
+        <action sym="key.enumkey" name="枚举键" code="0xAE0000800060F03">
+            <param name="Index" type="0x104" typename="Uint32" desc="索引"/>
+            <param name="Name" type="0x809E" typename="UnicodeString"/>
+        </action>
+        <action sym="key.enumvalue" name="枚举值" code="0xB21000800060F03">
+            <param name="Index" type="0x104" typename="Uint32" desc="索引"/>
+            <param name="Name" type="0x809E" typename="UnicodeString"/>
+            <param name="Type" type="0x10A" typename="Enum" desc="值类型">
+                <value num="1" sym="REG_SZ">字符串</value>
+                <value num="2" sym="REG_EXPAND_SZ">可扩展字符串</value>
+                <value num="3" sym="REG_BINARY">二级制</value>
+                <value num="4" sym="REG_DWORD">DWORD</value>
+                <value num="5" sym="REG_DWORD_BIG_ENDIAN">DWORD大端</value>
+                <value num="6" sym="REG_LINK">链接</value>
+                <value num="7" sym="REG_MULTI_SZ">多字符串</value>
+                <value num="8" sym="REG_RESOURCE_LIST">资源链表</value>
+                <value num="9" sym="REG_FULL_RESOURCE_DESCRIPTOR">资源描述符</value>
+                <value num="10" sym="REG_RESOURCE_REQUIREMENTS_LIST">资源要求的链表</value>
+                <value num="11" sym="REG_QWORD">QWORD</value>
+            </param>
+        </action>
+        <action sym="key.query" name="查询" code="0xB60002000060F03"/>
+        <action sym="key.rename" name="重命名" code="0xBA0020000060F03">
+            <param name="NewName" type="0x809E" typename="UnicodeString" desc="新名字"/>
+        </action>
+        <action sym="key.delete" name="删除" code="0xBE0010000060F03"/>
+        <action sym="key.save" name="保存" code="0xC20040003060F03"/>
+        <action sym="key.load" name="装载" code="0xC60080003060F03">
+            <param name="Flags" type="0x10B" typename="Mask32" desc="标记">
+                <value bit="0" sym="Volatile">REG_WHOLE_HIVE_VOLATILE</value>
+                <value bit="1" sym="Refresh">REG_REFRESH_HIVE</value>
+                <value bit="2" sym="NoLazy">REG_NO_LAZY_FLUSH</value>
+                <value bit="3" sym="Force">REG_FORCE_RESTORE</value>
+                <value bit="4" sym="App">REG_APP_HIVE</value>
+                <value bit="5" sym="Private">REG_PROCESS_PRIVATE</value>
+                <value bit="6" sym="Journal">REG_START_JOURNAL</value>
+                <value bit="7" sym="Growth">REG_HIVE_EXACT_FILE_GROWTH</value>
+                <value bit="8" sym="NoRM">REG_HIVE_NO_RM</value>
+                <value bit="9" sym="SingleLog">REG_HIVE_SINGLE_LOG</value>
+                <value bit="10" sym="Boot">REG_BOOT_HIVE</value>
+                <value bit="11" sym="ReturnHandle">REG_LOAD_HIVE_OPEN_HANDLE</value>
+                <value bit="12" sym="Flush">REG_FLUSH_HIVE_FILE_GROWTH</value>
+                <value bit="13" sym="Readonly">REG_OPEN_READ_ONLY</value>
+                <value bit="14" sym="Immutable">REG_IMMUTABLE</value>
+            </param>
+        </action>
+        <action sym="key.unload" name="卸载" code="0xCA0000400060F03"/>
+        <action sym="key.restore" name="还原" code="0xCE1020003060F03">
+            <param name="Flags" type="0x10B" typename="Mask32" desc="标记">
+                <value bit="0" sym="Volatile">REG_WHOLE_HIVE_VOLATILE</value>
+                <value bit="1" sym="Refresh">REG_REFRESH_HIVE</value>
+                <value bit="2" sym="NoLazy">REG_NO_LAZY_FLUSH</value>
+                <value bit="3" sym="Force">REG_FORCE_RESTORE</value>
+                <value bit="4" sym="App">REG_APP_HIVE</value>
+                <value bit="5" sym="Private">REG_PROCESS_PRIVATE</value>
+                <value bit="6" sym="Journal">REG_START_JOURNAL</value>
+                <value bit="7" sym="Growth">REG_HIVE_EXACT_FILE_GROWTH</value>
+                <value bit="8" sym="NoRM">REG_HIVE_NO_RM</value>
+                <value bit="9" sym="SingleLog">REG_HIVE_SINGLE_LOG</value>
+                <value bit="10" sym="Boot">REG_BOOT_HIVE</value>
+                <value bit="11" sym="ReturnHandle">REG_LOAD_HIVE_OPEN_HANDLE</value>
+                <value bit="12" sym="Flush">REG_FLUSH_HIVE_FILE_GROWTH</value>
+                <value bit="13" sym="Readonly">REG_OPEN_READ_ONLY</value>
+                <value bit="14" sym="Immutable">REG_IMMUTABLE</value>
+            </param>
+        </action>
+        <action sym="key.replace" name="替换" code="0xD22020003060F03">
+            <param name="NewFile" type="0x809E" typename="UnicodeString" desc="新文件名"/>
+            <param name="OldFile" type="0x809E" typename="UnicodeString" desc="旧文件名"/>
+        </action>
+        <action sym="value.set" name="设置" code="0xD60004000070F03">
+            <param name="Type" type="0x10A" typename="Enum" desc="值类型">
+                <value num="1" sym="REG_SZ">字符串</value>
+                <value num="2" sym="REG_EXPAND_SZ">可扩展字符串</value>
+                <value num="3" sym="REG_BINARY">二级制</value>
+                <value num="4" sym="REG_DWORD">DWORD</value>
+                <value num="5" sym="REG_DWORD_BIG_ENDIAN">DWORD大端</value>
+                <value num="6" sym="REG_LINK">链接</value>
+                <value num="7" sym="REG_MULTI_SZ">多字符串</value>
+                <value num="8" sym="REG_RESOURCE_LIST">资源链表</value>
+                <value num="9" sym="REG_FULL_RESOURCE_DESCRIPTOR">资源描述符</value>
+                <value num="10" sym="REG_RESOURCE_REQUIREMENTS_LIST">资源要求的链表</value>
+                <value num="11" sym="REG_QWORD">QWORD</value>
+            </param>
+            <param name="Length" type="0x104" typename="Uint32" desc="数据长度"/>
+            <param name="Data" type="0x214" typename="PBinary" desc="数据"/>
+        </action>
+        <action sym="value.query" name="查询" code="0xDA0008000070F03"/>
+        <action sym="value.delete" name="删除" code="0xDE0010000070F03"/>
+        <action sym="acc.create" name="新建" code="0xE20000200080F04">
+            <param name="AccountType" type="0x10B" typename="Mask32" desc="账号类型">
+                <value bit="0" sym="Script">脚本</value>
+                <value bit="1" sym="Disabled">已禁用</value>
+                <value bit="3" sym="HomeDirRequired">必须有主目录</value>
+                <value bit="4" sym="AutoLocked">自动锁定</value>
+                <value bit="5" sym="PasswordNotRequired">密码是非必须的</value>
+                <value bit="6" sym="PasswordCantChange">密码不可更改</value>
+                <value bit="7" sym="EncryptedPasswordAllowed">允许加密的口令</value>
+                <value bit="8" sym="Temp">临时复制</value>
+                <value bit="9" sym="Normal">一般的</value>
+                <value bit="11" sym="InterDomainTrust">域间信任</value>
+                <value bit="12" sym="WorkstationTrust">工作站信任</value>
+                <value bit="13" sym="ServerTrust">服务器信任</value>
+                <value bit="16" sym="DontExpirePassword">密码永不过期</value>
+                <value bit="17" sym="Mns">MNS</value>
+                <value bit="18" sym="SmartcardRequired">必须有智能卡</value>
+                <value bit="19" sym="TrustedForDelegation">委托信任</value>
+                <value bit="20" sym="NotDelegated">非委托的</value>
+                <value bit="21" sym="UseDesKeyOnly">仅使用DES密钥</value>
+                <value bit="22" sym="DontRequirePreauth">预认证是非必须的</value>
+                <value bit="23" sym="PasswordExpired">密码已过期</value>
+                <value bit="24" sym="TrustedToAuthenticateForDelegation">信任委托的认证</value>
+                <value bit="25" sym="NoAuthDataRequired">非委托的</value>
+                <value bit="26" sym="PartialSecrets">部分秘密</value>
+                <value bit="27" sym="UseAesKeys">使用AES密钥</value>
+                <value bit="29" sym="DontShowInLogonUI">不在登录界面显示</value>
+                <value bit="30" sym="BlankPassword">空口令</value>
+                <value bit="31" sym="WeakPassword">弱口令</value>
+            </param>
+        </action>
+        <action sym="acc.logon" name="登录" code="0xE60000100080F04">
+            <param name="LogonType" type="0x10A" typename="Enum" desc="登录类型">
+                <value num="2" sym="Interactive">交互式</value>
+                <value num="3" sym="Network">网络</value>
+                <value num="4" sym="Batch">批处理</value>
+                <value num="5" sym="Service">服务</value>
+                <value num="6" sym="Proxy">代理</value>
+                <value num="7" sym="Unlock">解除锁定</value>
+                <value num="8" sym="NetworkCleartext">网络明文</value>
+                <value num="9" sym="NewCredentials">新凭据</value>
+                <value num="10" sym="RemoteInteractive">远程交互</value>
+                <value num="11" sym="CachedInteractive">缓存交互</value>
+                <value num="12" sym="CachedRemoteInteractive">缓存远程交互</value>
+                <value num="13" sym="CachedUnlock ">缓存解除锁定</value>
+            </param>
+        </action>
+        <action sym="acc.logoff" name="注销" code="0xEA0000400080F04"/>
+        <action sym="acc.enum" name="枚举" code="0xEE0000800080F04">
+            <param name="Flags" type="0x10B" typename="Mask32" desc="账号类型">
+                <value bit="0" sym="Script">脚本</value>
+                <value bit="1" sym="Disabled">已禁用</value>
+                <value bit="3" sym="HomeDirRequired">必须有主目录</value>
+                <value bit="4" sym="AutoLocked">自动锁定</value>
+                <value bit="5" sym="PasswordNotRequired">密码是非必须的</value>
+                <value bit="6" sym="PasswordCantChange">密码不可更改</value>
+                <value bit="7" sym="EncryptedPasswordAllowed">允许加密的口令</value>
+                <value bit="8" sym="Temp">临时复制</value>
+                <value bit="9" sym="Normal">一般的</value>
+                <value bit="11" sym="InterDomainTrust">域间信任</value>
+                <value bit="12" sym="WorkstationTrust">工作站信任</value>
+                <value bit="13" sym="ServerTrust">服务器信任</value>
+                <value bit="16" sym="DontExpirePassword">密码永不过期</value>
+                <value bit="17" sym="Mns">MNS</value>
+                <value bit="18" sym="SmartcardRequired">必须有智能卡</value>
+                <value bit="19" sym="TrustedForDelegation">委托信任</value>
+                <value bit="20" sym="NotDelegated">非委托的</value>
+                <value bit="21" sym="UseDesKeyOnly">仅使用DES密钥</value>
+                <value bit="22" sym="DontRequirePreauth">预认证是非必须的</value>
+                <value bit="23" sym="PasswordExpired">密码已过期</value>
+                <value bit="24" sym="TrustedToAuthenticateForDelegation">信任委托的认证</value>
+                <value bit="25" sym="NoAuthDataRequired">非委托的</value>
+                <value bit="26" sym="PartialSecrets">部分秘密</value>
+                <value bit="27" sym="UseAesKeys">使用AES密钥</value>
+                <value bit="29" sym="DontShowInLogonUI">不在登录界面显示</value>
+                <value bit="30" sym="BlankPassword">空口令</value>
+                <value bit="31" sym="WeakPassword">弱口令</value>
+            </param>
+        </action>
+        <action sym="acc.change" name="修改" code="0xF21004008080F04">
+            <param name="InfoClass" type="0x10A" typename="Enum" desc="信息类">
+                <value num="1" sym="General">一般</value>
+                <value num="2" sym="Preferences">偏好</value>
+                <value num="3" sym="Logon">登录</value>
+                <value num="4" sym="LogonHours">登录时数</value>
+                <value num="5" sym="Account">账号</value>
+                <value num="6" sym="Name">名称</value>
+                <value num="7" sym="AccountName">账号名称</value>
+                <value num="8" sym="FullName">完整名称</value>
+                <value num="9" sym="PrimaryGroup">主要组</value>
+                <value num="10" sym="Home">主目录</value>
+                <value num="11" sym="Script">登录脚本</value>
+                <value num="12" sym="Profile">配置文件</value>
+                <value num="13" sym="AdminComment">管理员备注</value>
+                <value num="14" sym="WorkStations">工作站</value>
+                <value num="15" sym="SetPassword">设置密码</value>
+                <value num="16" sym="Control">控制</value>
+                <value num="17" sym="Expires">有效期</value>
+                <value num="18" sym="Internal1">内部1</value>
+                <value num="19" sym="Internal2">内部2</value>
+                <value num="20" sym="Parameters">参数</value>
+                <value num="21" sym="All">全部</value>
+                <value num="22" sym="Internal3">内部3</value>
+                <value num="23" sym="Internal4">内部4</value>
+                <value num="24" sym="Internal5">内部5</value>
+                <value num="25" sym="Internal4New">内部4新</value>
+                <value num="26" sym="Internal5New">内部5新</value>
+                <value num="27" sym="Internal6">内部6</value>
+                <value num="28" sym="Extended">扩展的</value>
+                <value num="29" sym="LogonUI">登录界面</value>
+            </param>
+            <param name="Value" type="0x213" typename="WideString" desc="相关的字符串值"/>
+            <param name="EnableChanged" type="0x41" typename="Boolean" desc="是否修改了启停用"/>
+            <param name="PasswordChanged" type="0x41" typename="Boolean" desc="是否修改了密码"/>
+        </action>
+        <action sym="acc.addgroup" name="添加到组" code="0xF60020000080F04">
+            <param name="Name" type="0x213" typename="WideString" desc="组名"/>
+        </action>
+        <action sym="acc.delgroup" name="从组中删除" code="0xFA1020000080F04">
+            <param name="Name" type="0x213" typename="WideString" desc="组名"/>
+        </action>
+        <action sym="acc.addalias" name="添加到别名" code="0xFE2020000080F04">
+            <param name="Name" type="0x213" typename="WideString" desc="别名"/>
+        </action>
+        <action sym="acc.delalias" name="从别名中删除" code="0x1023020000080F04">
+            <param name="Name" type="0x213" typename="WideString" desc="别名"/>
+        </action>
+        <action sym="acc.query" name="查询" code="0x1060008000080F04"/>
+        <action sym="acc.delete" name="删除" code="0x10A0010000080F04"/>
+        <action sym="svc.create" name="新建" code="0x10E0000200090F05">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="qc">查询配置</value>
+                <value bit="1" sym="cc">修改配置</value>
+                <value bit="2" sym="qs">查询状态</value>
+                <value bit="3" sym="ed">枚举依赖项</value>
+                <value bit="4" sym="start">启动</value>
+                <value bit="5" sym="stop">停止</value>
+                <value bit="6" sym="pause">暂停</value>
+                <value bit="7" sym="interrogate">询问</value>
+                <value bit="8" sym="user">用户定义的控制</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="28" sym="GA">全部权限</value>
+                <value bit="29" sym="GE">执行</value>
+                <value bit="30" sym="GW">写</value>
+                <value bit="31" sym="GR">读</value>
+            </param>
+            <param name="Wow64" type="0x41" typename="Boolean" desc="Wow64"/>
+        </action>
+        <action sym="svc.open" name="打开" code="0x1120000100090F05">
+            <param name="DesiredAccess" type="0x10B" typename="Mask32" desc="权限">
+                <value bit="0" sym="qc">查询配置</value>
+                <value bit="1" sym="cc">修改配置</value>
+                <value bit="2" sym="qs">查询状态</value>
+                <value bit="3" sym="ed">枚举依赖项</value>
+                <value bit="4" sym="start">启动</value>
+                <value bit="5" sym="stop">停止</value>
+                <value bit="6" sym="pause">暂停</value>
+                <value bit="7" sym="interrogate">询问</value>
+                <value bit="8" sym="user">用户定义的控制</value>
+                <value bit="16" sym="D">删除</value>
+                <value bit="17" sym="SR">标准</value>
+                <value bit="18" sym="WAC">写访问控制</value>
+                <value bit="19" sym="WO">写所有者</value>
+                <value bit="28" sym="GA">全部权限</value>
+                <value bit="29" sym="GE">执行</value>
+                <value bit="30" sym="GW">写</value>
+                <value bit="31" sym="GR">读</value>
+            </param>
+        </action>
+        <action sym="svc.start" name="启动" code="0x1160000800090F05">
+            <param name="argc" type="0x104" typename="Uint32" desc="参数个数"/>
+            <param name="argv" type="0x213" typename="WideString" desc="参数"/>
+        </action>
+        <action sym="svc.stop" name="停止" code="0x11A0000400090F05"/>
+        <action sym="svc.enum" name="枚举" code="0x11E0000800090F05">
+            <param name="ServiceType" type="0x10B" typename="Mask32" desc="服务类型">
+                <value bit="0" sym="kernel">内核</value>
+                <value bit="1" sym="filesys">文件系统</value>
+                <value bit="2" sym="adapter">适配器</value>
+                <value bit="3" sym="rec">认领器</value>
+                <value bit="4" sym="own">独立进程</value>
+                <value bit="5" sym="share">共享进程</value>
+                <value bit="8" sym="interact">交互式</value>
+            </param>
+            <param name="ServiceState" type="0x10B" typename="Mask32" desc="状态">
+                <value bit="0" sym="active">活动的</value>
+                <value bit="1" sym="inactive">非活动的</value>
+            </param>
+        </action>
+        <action sym="svc.write" name="写服务注册表" code="0x1220001000090F05">
+            <param name="Name" type="0x809E" typename="UnicodeString" desc="项目名称"/>
+            <param name="Type" type="0x10A" typename="Enum" desc="值类型">
+                <value num="1" sym="REG_SZ">字符串</value>
+                <value num="2" sym="REG_EXPAND_SZ">可扩展字符串</value>
+                <value num="3" sym="REG_BINARY">二级制</value>
+                <value num="4" sym="REG_DWORD">DWORD</value>
+                <value num="5" sym="REG_DWORD_BIG_ENDIAN">DWORD大端</value>
+                <value num="6" sym="REG_LINK">链接</value>
+                <value num="7" sym="REG_MULTI_SZ">多字符串</value>
+                <value num="8" sym="REG_RESOURCE_LIST">资源链表</value>
+                <value num="9" sym="REG_FULL_RESOURCE_DESCRIPTOR">资源描述符</value>
+                <value num="10" sym="REG_RESOURCE_REQUIREMENTS_LIST">资源要求的链表</value>
+                <value num="11" sym="REG_QWORD">QWORD</value>
+            </param>
+            <param name="Data" type="0x214" typename="PBinary" desc="数据"/>
+        </action>
+        <action sym="svc.control" name="控制" code="0x1262000800090F05">
+            <param name="ControlCode" type="0x10A" typename="Enum" desc="控制码">
+                <value num="1" sym="STOP">停止</value>
+                <value num="2" sym="PAUSE">暂停</value>
+                <value num="3" sym="CONTINUE">继续</value>
+                <value num="4" sym="INTERROGATE">询问</value>
+                <value num="5" sym="SHUTDOWN">关机</value>
+                <value num="6" sym="PARAMCHANGE">参数修改</value>
+                <value num="7" sym="NETBINDADD">添加网络绑定</value>
+                <value num="8" sym="NETBINDREMOVE">删除网络绑定</value>
+                <value num="9" sym="NETBINDENABLE">启用网络绑定</value>
+                <value num="10" sym="NETBINDDISABLE">禁用网络绑定</value>
+                <value num="11" sym="DEVICEEVENT">设备事件</value>
+                <value num="12" sym="HARDWAREPROFILECHANGE">硬件修改</value>
+                <value num="13" sym="POWEREVENT">电源事件</value>
+                <value num="14" sym="SESSIONCHANGE">会话变更</value>
+                <value num="15" sym="PRESHUTDOWN">预关机</value>
+                <value num="16" sym="TIMECHANGE">时间修改</value>
+                <value num="32" sym="TRIGGEREVENT">触发事件</value>
+            </param>
+        </action>
+        <action sym="svc.change" name="修改配置" code="0x12A1004009090F05">
+            <param name="ThroughRegistry" type="0x41" typename="Boolean" desc="是否通过注册表修改"/>
+        </action>
+        <action sym="svc.change2" name="修改配置2" code="0x12E2004000090F05">
+            <param name="InfoLevel" type="0x10A" typename="Enum" desc="信息级别">
+                <value num="1" sym="STOP">停止</value>
+                <value num="2" sym="PAUSE">暂停</value>
+                <value num="3" sym="CONTINUE">继续</value>
+                <value num="4" sym="INTERROGATE">询问</value>
+                <value num="5" sym="SHUTDOWN">关机</value>
+                <value num="6" sym="PARAMCHANGE">参数修改</value>
+                <value num="7" sym="NETBINDADD">添加网络绑定</value>
+                <value num="8" sym="NETBINDREMOVE">删除网络绑定</value>
+                <value num="9" sym="NETBINDENABLE">启用网络绑定</value>
+                <value num="10" sym="NETBINDDISABLE">禁用网络绑定</value>
+                <value num="11" sym="DEVICEEVENT">设备事件</value>
+                <value num="12" sym="HARDWAREPROFILECHANGE">硬件修改</value>
+                <value num="13" sym="POWEREVENT">电源事件</value>
+                <value num="14" sym="SESSIONCHANGE">会话变更</value>
+                <value num="15" sym="PRESHUTDOWN">预关机</value>
+                <value num="16" sym="TIMECHANGE">时间修改</value>
+                <value num="32" sym="TRIGGEREVENT">触发事件</value>
+            </param>
+            <param name="Info" type="0x214" typename="PBinary" desc="数据"/>
+        </action>
+        <action sym="svc.delete" name="删除" code="0x1320010000090F05"/>
+        <action sym="site.open" name="打开" code="0x13600001000A0F06"/>
+        <action sym="site.upload" name="上载" code="0x13A000100A030F06"/>
+        <action sym="net.config" name="配置" code="0x13E10040000B0F06">
+            <param name="Action" type="0x104" typename="Uint32" desc="动作类型"/>
+            <param name="ObjectId" type="0x104" typename="Uint32" desc="配置类型"/>
+            <param name="Module" type="0xC416" typename="Guid" desc="模块"/>
+            <param name="Data" type="0x214" typename="PBinary" desc="数据"/>
+        </action>
+        <action sym="net.iptx" name="IP发送" code="0x14200010000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0x108" typename="IPv4" desc="本机IP"/>
+            <param name="RemoteIp" type="0x108" typename="IPv4" desc="远程IP"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.iprx" name="IP接收" code="0x14600020000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0x108" typename="IPv4" desc="本机IP"/>
+            <param name="RemoteIp" type="0x108" typename="IPv4" desc="远程IP"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.porttx" name="传输层发送" code="0x14A10010000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0x108" typename="IPv4" desc="本机IP"/>
+            <param name="RemoteIp" type="0x108" typename="IPv4" desc="远程IP"/>
+            <param name="LocalPort" type="0x83" typename="Uint16" desc="本机端口"/>
+            <param name="RemotePort" type="0x83" typename="Uint16" desc="远程端口"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.portrx" name="传输层接收" code="0x14E10020000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0x108" typename="IPv4" desc="本机IP"/>
+            <param name="RemoteIp" type="0x108" typename="IPv4" desc="远程IP"/>
+            <param name="LocalPort" type="0x83" typename="Uint16" desc="本机端口"/>
+            <param name="RemotePort" type="0x83" typename="Uint16" desc="远程端口"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.listen" name="监听" code="0x15210001000B0F06">
+            <param name="LocalIp" type="0x108" typename="IPv4" desc="本机IP"/>
+            <param name="LocalPort" type="0x83" typename="Uint16"/>
+        </action>
+        <action sym="net.connect" name="连接" code="0x15610002000C0F06"/>
+        <action sym="net.accept" name="确认" code="0x15A20002000C0F06"/>
+        <action sym="net.estab" name="建立会话" code="0x15C30002000C0F06">
+            <param name="IsNew" type="0x41" typename="Boolean" desc="值"/>
+        </action>
+        <action sym="net.data" name="数据" code="0x16200010000C0F06">
+            <param name="Flags" type="0x10B" typename="Mask32" desc="标记">
+                <value bit="0" sym="recv">入站</value>
+                <value bit="1" sym="r_exp">紧急</value>
+                <value bit="2" sym="r_fin">完成(FIN)</value>
+                <value bit="3" sym="r_abort">复位(RST)</value>
+                <value bit="4" sym="r_push">无延迟（PSH）</value>
+                <value bit="16" sym="send">出站</value>
+                <value bit="17" sym="s_exp">紧急</value>
+                <value bit="18" sym="s_nodelay">无缓冲</value>
+                <value bit="19" sym="s_fin">完成(FIN)</value>
+                <value bit="20" sym="s_abort">复位（RST）</value>
+            </param>
+            <param name="Length" type="0x104" typename="Uint32" desc="载荷长度"/>
+            <param name="Data" type="0x214" typename="PBinary" desc="载荷数据"/>
+            <param name="Counter" type="0x104" typename="Uint32" desc="包序号"/>
+            <param name="Url" type="0x809E" typename="UnicodeString" desc="解析出来的URL"/>
+        </action>
+        <action sym="net.close" name="断开" code="0x16400004000C0F06">
+            <param name="TxBytes" type="0x20D" typename="Uint64" desc="发送数据长度"/>
+            <param name="RxBytes" type="0x20D" typename="Uint64" desc="接收数据长度"/>
+            <param name="Entropy" type="0x83" typename="Uint16" desc="数据熵"/>
+            <param name="Url" type="0x809E" typename="UnicodeString" desc="解析出来的URL"/>
+        </action>
+        <action sym="task.create" name="创建" code="0x16A0000200110F08"/>
+        <action sym="task.change" name="修改" code="0x16E1000211110F08"/>
+        <action sym="task.retrieve" name="提取" code="0x1720002000110F08"/>
+        <action sym="task.run" name="运行" code="0x1760000800110F08">
+            <param name="Parameters" type="0x213" typename="WideString" desc="参数"/>
+            <param name="SessionId" type="0x104" typename="Uint32" desc="会话ID"/>
+            <param name="Flags" type="0x10B" typename="Mask32" desc="标记"/>
+            <param name="User" type="0x213" typename="WideString" desc="用户名"/>
+        </action>
+        <action sym="task.stop" name="停止" code="0x17A0000400110F08"/>
+        <action sym="task.enum" name="枚举" code="0x17E0000800110F08"/>
+        <action sym="task.enable" name="启用" code="0x1821004000110F08">
+            <param name="Value" type="0x41" typename="Boolean" desc="值"/>
+        </action>
+        <action sym="task.delete" name="删除" code="0x1860010000110F08"/>
+        <action sym="task.rename" name="重命名" code="0x18A0020000110F08">
+            <param name="NewName" type="0x213" typename="WideString" desc="新名字"/>
+        </action>
+        <action sym="net.iptx_v6" name="IPv6发送" code="0x18E00010000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0xC417" typename="IPv6" desc="本机IP"/>
+            <param name="RemoteIp" type="0xC417" typename="IPv6" desc="远程IP"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.iprx_v6" name="IPv6P接收" code="0x19200020000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0xC417" typename="IPv6" desc="本机IP"/>
+            <param name="RemoteIp" type="0xC417" typename="IPv6" desc="远程IP"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.porttx_v6" name="IPv6传输层发送" code="0x19610010000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0xC417" typename="IPv6" desc="本机IP"/>
+            <param name="RemoteIp" type="0xC417" typename="IPv6" desc="远程IP"/>
+            <param name="LocalPort" type="0x83" typename="Uint16" desc="本机端口"/>
+            <param name="RemotePort" type="0x83" typename="Uint16" desc="远程端口"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.portrx_v6" name="IPv6传输层接收" code="0x19A10020000E0B06">
+            <param name="Protocol" type="0x10A" typename="Enum" desc="协议">
+                <value num="1" sym="ICMP">ICMP</value>
+                <value num="6" sym="TCP">TCP</value>
+                <value num="17" sym="UDP">UDP</value>
+                <value num="2" sym="IGMP">IGMP</value>
+                <value num="3" sym="GGP">GGP</value>
+                <value num="4" sym="IPIP">IPIP</value>
+                <value num="5" sym="ST">ST</value>
+                <value num="7" sym="CBT">CBT</value>
+                <value num="8" sym="EGP">EGP</value>
+                <value num="9" sym="IGP">IGP</value>
+                <value num="10" sym="BBC-RCC-MON">BBC-RCC-MON</value>
+                <value num="11" sym="PUP">PUP</value>
+                <value num="18" sym="MUX">MUX</value>
+                <value num="58" sym="ICMPv6">ICMPv6</value>
+            </param>
+            <param name="LocalIp" type="0xC417" typename="IPv6" desc="本机IP"/>
+            <param name="RemoteIp" type="0xC417" typename="IPv6" desc="远程IP"/>
+            <param name="LocalPort" type="0x83" typename="Uint16" desc="本机端口"/>
+            <param name="RemotePort" type="0x83" typename="Uint16" desc="远程端口"/>
+            <param name="AddrClassify" type="0x10A" typename="Enum" desc="远程地址类型">
+                <value num="0" sym="invalid">无效的</value>
+                <value num="1" sym="loopback">环回的</value>
+                <value num="2" sym="lan">局域网</value>
+                <value num="3" sym="wan">广域网</value>
+                <value num="4" sym="mcast">组播</value>
+                <value num="5" sym="bcast">广播</value>
+            </param>
+        </action>
+        <action sym="net.listen_v6" name="IPv6监听" code="0x19E10001000B0F06">
+            <param name="LocalIp" type="0xC417" typename="IPv6" desc="本机IP"/>
+            <param name="LocalPort" type="0x83" typename="Uint16"/>
+        </action>
+        <action sym="net.connect_v6" name="IPv6连接" code="0x1A210002000D0F06"/>
+        <action sym="net.accept_v6" name="IPv6确认" code="0x1A620002000D0F06"/>
+        <action sym="net.estab_v6" name="IPv6建立会话" code="0x1A830002000D0F06">
+            <param name="IsNew" type="0x41" typename="Boolean" desc="值"/>
+        </action>
+        <action sym="net.data_v6" name="IPv6数据" code="0x1AE00010000D0F06">
+            <param name="Flags" type="0x10B" typename="Mask32" desc="标记">
+                <value bit="0" sym="recv">入站</value>
+                <value bit="1" sym="r_exp">紧急</value>
+                <value bit="2" sym="r_fin">完成(FIN)</value>
+                <value bit="3" sym="r_abort">复位(RST)</value>
+                <value bit="4" sym="r_push">无延迟（PSH）</value>
+                <value bit="16" sym="send">出站</value>
+                <value bit="17" sym="s_exp">紧急</value>
+                <value bit="18" sym="s_nodelay">无缓冲</value>
+                <value bit="19" sym="s_fin">完成(FIN)</value>
+                <value bit="20" sym="s_abort">复位（RST）</value>
+            </param>
+            <param name="Length" type="0x104" typename="Uint32" desc="载荷长度"/>
+            <param name="Data" type="0x214" typename="PBinary" desc="载荷数据"/>
+            <param name="Counter" type="0x104" typename="Uint32" desc="包序号"/>
+            <param name="Url" type="0x809E" typename="UnicodeString" desc="解析出来的URL"/>
+        </action>
+        <action sym="net.close_v6" name="IPv6关闭" code="0x1B000004000D0F06">
+            <param name="TxBytes" type="0x20D" typename="Uint64" desc="发送数据长度"/>
+            <param name="RxBytes" type="0x20D" typename="Uint64" desc="接收数据长度"/>
+            <param name="Entropy" type="0x83" typename="Uint16" desc="数据熵"/>
+            <param name="Url" type="0x809E" typename="UnicodeString" desc="解析出来的URL"/>
+        </action>
+        <action sym="dev.preload" name="类过滤" code="0x1B60000100000009">
+            <param name="ClassGUID" type="0x809E" typename="UnicodeString" desc="类的GUID"/>
+            <param name="CurrentFilters" type="0x809E" typename="UnicodeString" desc="当前的过滤器"/>
+        </action>
+        <action sym="dev.add" name="插入" code="0x1BA0000200001309">
+            <param name="InstallState" type="0x104" typename="Uint32" desc="安装状态"/>
+        </action>
+        <action sym="dev.io" name="控制" code="0x1BE0000800130F09">
+            <param name="Code" type="0x104" typename="Uint32" desc="IO控制码"/>
+            <param name="Input" type="0x214" typename="PBinary" desc="输入数据"/>
+            <param name="Output" type="0x214" typename="PBinary" desc="输出缓冲区"/>
+            <param name="Internal" type="0x41" typename="Boolean" desc="内部IO"/>
+        </action>
+        <action sym="dev.io_comp" name="控制完成" code="0x1C00000800130F09">
+            <param name="Code" type="0x104" typename="Uint32" desc="IO控制码"/>
+            <param name="Input" type="0x214" typename="PBinary" desc="输入数据"/>
+            <param name="Output" type="0x214" typename="PBinary" desc="输出缓冲区"/>
+            <param name="ResultLength" type="0x104" typename="Uint32" desc="返回长度"/>
+        </action>
+        <action sym="dev.scsi" name="SCSI" code="0x1C60000800130F09">
+            <param name="CDB" type="0x214" typename="PBinary" desc="CDB"/>
+            <param name="DataBuffer" type="0x214" typename="PBinary" desc="缓冲区"/>
+            <param name="SrbFlags" type="0x10B" typename="Mask32" desc="SCSI请求块标记">
+                <value bit="1" sym="qae">SRB_FLAGS_QUEUE_ACTION_ENABLE</value>
+                <value bit="2" sym="dd">SRB_FLAGS_DISABLE_DISCONNECT</value>
+                <value bit="3" sym="nosync">SRB_FLAGS_DISABLE_SYNCH_TRANSFER</value>
+                <value bit="4" sym="bfq">SRB_FLAGS_BYPASS_FROZEN_QUEUE</value>
+                <value bit="5" sym="das">SRB_FLAGS_DISABLE_AUTOSENSE</value>
+                <value bit="6" sym="in">SRB_FLAGS_DATA_IN</value>
+                <value bit="7" sym="out">SRB_FLAGS_DATA_OUT</value>
+                <value bit="8" sym="nqf">SRB_FLAGS_NO_QUEUE_FREEZE</value>
+                <value bit="9" sym="cache">SRB_FLAGS_ADAPTER_CACHE_ENABLE</value>
+                <value bit="10" sym="fsb">SRB_FLAGS_FREE_SENSE_BUFFER</value>
+                <value bit="11" sym="d3">SRB_FLAGS_D3_PROCESSING</value>
+                <value bit="12" sym="seq">SRB_FLAGS_SEQUENTIAL_REQUIRED</value>
+                <value bit="16" sym="active">SRB_FLAGS_IS_ACTIVE</value>
+                <value bit="17" sym="afz">SRB_FLAGS_ALLOCATED_FROM_ZONE</value>
+                <value bit="18" sym="sfp">SRB_FLAGS_SGLIST_FROM_POOL</value>
+                <value bit="19" sym="blq">SRB_FLAGS_BYPASS_LOCKED_QUEUE</value>
+                <value bit="20" sym="nka">SRB_FLAGS_NO_KEEP_AWAKE</value>
+                <value bit="21" sym="pda">SRB_FLAGS_PORT_DRIVER_ALLOCSENSE</value>
+                <value bit="22" sym="pds">SRB_FLAGS_PORT_DRIVER_SENSEHASPORT</value>
+                <value bit="23" sym="dsnp">SRB_FLAGS_DONT_START_NEXT_PACKET    </value>
+            </param>
+        </action>
+        <action sym="dev.scsi_comp" name="SCSI" code="0x1C80000800130F09">
+            <param name="CDB" type="0x214" typename="PBinary" desc="CDB"/>
+            <param name="DateBuffer" type="0x214" typename="PBinary" desc="缓冲区"/>
+            <param name="SrbFlags" type="0x10B" typename="Mask32" desc="SCSI请求块标记">
+                <value bit="1" sym="qae">SRB_FLAGS_QUEUE_ACTION_ENABLE</value>
+                <value bit="2" sym="dd">SRB_FLAGS_DISABLE_DISCONNECT</value>
+                <value bit="3" sym="nosync">SRB_FLAGS_DISABLE_SYNCH_TRANSFER</value>
+                <value bit="4" sym="bfq">SRB_FLAGS_BYPASS_FROZEN_QUEUE</value>
+                <value bit="5" sym="das">SRB_FLAGS_DISABLE_AUTOSENSE</value>
+                <value bit="6" sym="in">SRB_FLAGS_DATA_IN</value>
+                <value bit="7" sym="out">SRB_FLAGS_DATA_OUT</value>
+                <value bit="8" sym="nqf">SRB_FLAGS_NO_QUEUE_FREEZE</value>
+                <value bit="9" sym="cache">SRB_FLAGS_ADAPTER_CACHE_ENABLE</value>
+                <value bit="10" sym="fsb">SRB_FLAGS_FREE_SENSE_BUFFER</value>
+                <value bit="11" sym="d3">SRB_FLAGS_D3_PROCESSING</value>
+                <value bit="12" sym="seq">SRB_FLAGS_SEQUENTIAL_REQUIRED</value>
+                <value bit="16" sym="active">SRB_FLAGS_IS_ACTIVE</value>
+                <value bit="17" sym="afz">SRB_FLAGS_ALLOCATED_FROM_ZONE</value>
+                <value bit="18" sym="sfp">SRB_FLAGS_SGLIST_FROM_POOL</value>
+                <value bit="19" sym="blq">SRB_FLAGS_BYPASS_LOCKED_QUEUE</value>
+                <value bit="20" sym="nka">SRB_FLAGS_NO_KEEP_AWAKE</value>
+                <value bit="21" sym="pda">SRB_FLAGS_PORT_DRIVER_ALLOCSENSE</value>
+                <value bit="22" sym="pds">SRB_FLAGS_PORT_DRIVER_SENSEHASPORT</value>
+                <value bit="23" sym="dsnp">SRB_FLAGS_DONT_START_NEXT_PACKET    </value>
+            </param>
+        </action>
+    </actions>
+    <methods>
+        <method name="block" desc="阻断"/>
+        <method name="permit" desc="放行"/>
+        <method name="continue" desc="继续"/>
+        <method name="skip" desc="跳过(针对遍历)"/>
+        <method name="audit" desc="审计">
+            <param name="target" typename="WideString" desc="消息目标"/>
+            <param name="level" typename="Enum" desc="审计级别">
+                <value num="0" sym="min">最小</value>
+                <value num="1" sym="nor">标准</value>
+                <value num="2" sym="full">全部</value>
+                <value num="5" sym="exp">标准(扩展)</value>
+                <value num="6" sym="all">全部(扩展)</value>
+            </param>
+            <param name="serverlog" typename="WideString" desc="服务器日志参数(报警类型|级别[|触发器类型|触发器名称|[触发器值]])"/>
+        </method>
+        <method name="SandboxLog" desc="记录动作到沙箱日志"/>
+        <method name="callback" desc="回调用户层">
+            <param name="target" typename="WideString" desc="消息目标"/>
+            <param name="timeout" typename="Uint32" desc="超时，秒，缺省为5"/>
+        </method>
+        <method name="prompt" desc="提示用户层">
+            <param name="Title" typename="WideString" desc="标题"/>
+            <param name="RiskWarning" typename="WideString" desc="风险提示"/>
+            <param name="Options" typename="Mask32" desc="选项">
+                <value bit="0" sym="dp">缺省放行</value>
+                <value bit="4" sym="pw">可设置白名单的</value>
+                <value bit="5" sym="tw">可设置临时白名单的</value>
+                <value bit="6" sym="pm">可永久记住此动作</value>
+                <value bit="7" sym="tm">可临时记住此动作</value>
+            </param>
+            <param name="Timeout" typename="Uint32" desc="超时，秒，缺省为30，如果指定0xFFFFFFFF则永远等待"/>
+        </method>
+        <method name="alart" desc="发送托盘报警">
+            <param name="Type" typename="Uint32" desc="报警类型"/>
+            <param name="Title" typename="WideString" desc="标题"/>
+            <param name="Text" typename="WideString" desc="文本"/>
+        </method>
+        <method name="xmlmsg" desc="向总线发送XML消息">
+            <param name="MessageText" typename="WideString" desc="消息文本"/>
+            <param name="ResultPath" typename="WideString" desc="从返回的消息中提取返回值的XPATH路径"/>
+            <param name="DefResult" typename="Uint32" desc="调用失败时的返回值"/>
+        </method>
+        <method name="status" desc="返回指定的状态码">
+            <param name="code" typename="Uint32" desc="状态码"/>
+        </method>
+        <method name="break" desc="内核断点"/>
+        <method name="AddSandboxCounterR" desc="设置沙箱读计数器">
+            <param name="value" typename="Uint32" desc="64位计数器值"/>
+        </method>
+        <method name="AddSandboxCounterW" desc="设置沙箱写计数器">
+            <param name="value" typename="Uint32" desc="64位计数器值"/>
+        </method>
+        <method name="SetGlobalCounter" desc="设置全局计数器值">
+            <param name="name" typename="WideString" desc="全局变量名称"/>
+            <param name="value" typename="Uint64" desc="64位计数器值"/>
+        </method>
+        <method name="AddGlobalCounter" desc="增加全局计数器值">
+            <param name="name" typename="WideString" desc="全局变量名称"/>
+            <param name="value" typename="Uint64" desc="64位计数器值"/>
+        </method>
+        <method name="DecGlobalCounter" desc="减小全局计数器值">
+            <param name="name" typename="WideString" desc="全局变量名称"/>
+            <param name="value" typename="Uint64" desc="64位计数器值"/>
+        </method>
+        <method name="SetGlobalString" desc="设置全局字符串值">
+            <param name="name" typename="WideString" desc="全局变量名称"/>
+            <param name="value" typename="WideString" desc="字符串值"/>
+        </method>
+        <method name="SetProcessCounter" class="15" desc="设置进程计数器值">
+            <param name="name" typename="WideString" desc="进程变量名称"/>
+            <param name="value" typename="Uint64" desc="64位计数器值"/>
+        </method>
+        <method name="AddProcessCounter" class="15" desc="增加进程计数器值">
+            <param name="name" typename="WideString" desc="进程变量名称"/>
+            <param name="value" typename="Uint64" desc="64位计数器值"/>
+        </method>
+        <method name="DecProcessCounter" class="15" desc="减小进程计数器值">
+            <param name="name" typename="WideString" desc="进程变量名称"/>
+            <param name="value" typename="Uint64" desc="64位计数器值"/>
+        </method>
+        <method name="ClearProcessAccessBit" action="ps.open" desc="清除进程访问权限的标志位">
+            <param name="AccessMask" typename="Mask32" desc="待清除的掩码">
+                <value bit="0" sym="T">终止</value>
+                <value bit="1" sym="CT">创建线程</value>
+                <value bit="2" sym="SS">设置会话ID</value>
+                <value bit="3" sym="VO">内存操作</value>
+                <value bit="4" sym="VR">读内存</value>
+                <value bit="5" sym="VW">写内存</value>
+                <value bit="6" sym="DH">复制句柄</value>
+                <value bit="7" sym="CP">创建进程</value>
+                <value bit="8" sym="SQ">设置配额</value>
+                <value bit="9" sym="SI">设置信息</value>
+                <value bit="10" sym="QI">查询信息</value>
+                <value bit="11" sym="SR">挂起唤醒</value>
+                <value bit="12" sym="QL">查询配额</value>
+            </param>
+        </method>
+        <method name="HookSyscall" action="ps.loadself" class="15" desc="挂接NTDLL">
+            <param name="SyscallNames" typename="Mask32" desc="系统调用掩码">
+                <value bit="0" sym="LD">加载库</value>
+                <value bit="1" sym="OD">打开设备</value>
+                <value bit="2" sym="CD">设备控制</value>
+                <value bit="3" sym="IJ">注入</value>
+                <value bit="4" sym="ST">设置系统时间</value>
+                <value bit="5" sym="LR">加载驱动</value>
+                <value bit="6" sym="AP">调整特权</value>
+                <value bit="7" sym="PS">系统调用后</value>
+            </param>
+        </method>
+        <method name="LoadStub" action="ps.loadself" class="15" desc="预加载动态库">
+            <param name="slot" typename="Uint8" desc="槽位"/>
+            <param name="file" typename="WideString" desc="dll路径"/>
+        </method>
+        <method name="HookRpc" action="ps.load" class="15" desc="挂接RPC函数">
+            <param name="slot" typename="Uint8" desc="槽位"/>
+            <param name="name" typename="WideString" desc="目标库名"/>
+        </method>
+        <method name="InjectSC" action="ps.load" class="15" desc="注入Shellcode">
+            <param name="slot" typename="Uint8" desc="槽位"/>
+        </method>
+        <method name="InjectDll" action="ps.load" class="15" desc="追加动态库">
+            <param name="file" typename="WideString" desc="dll路径"/>
+        </method>
+        <method name="KillProcess" class="15" desc="杀死进程">
+            <param name="status" typename="Uint32" desc="退出码"/>
+        </method>
+        <method name="SetProcessFlags" class="15" desc="更新进程标记">
+            <param name="add" typename="Mask32" desc="要添加的标记">
+                <value bit="0" sym="tr">可信的</value>
+                <value bit="1" sym="wl">白名单</value>
+                <value bit="2" sym="bl">黑名单</value>
+                <value bit="3" sym="ps">无提示</value>
+                <value bit="4" sym="rj">遇提示阻断</value>
+                <value bit="5" sym="tc">跟踪</value>
+                <value bit="6" sym="au">审计</value>
+                <value bit="7" sym="pro">被保护的</value>
+                <value bit="9" sym="alert">需要注意的</value>
+                <value bit="10" sym="susp">可疑的</value>
+                <value bit="11" sym="guilty">有罪的</value>
+                <value bit="12" sym="sys">系统</value>
+                <value bit="13" sym="itg">完整性</value>
+                <value bit="14" sym="svcs">服务管理器</value>
+                <value bit="15" sym="pol">已被污染</value>
+                <value bit="16" sym="wow">wow64</value>
+                <value bit="17" sym="ia">交互式</value>
+                <value bit="18" sym="adm">管理员</value>
+                <value bit="19" sym="svc">服务进程</value>
+                <value bit="20" sym="rpcsvr">RPC服务</value>
+                <value bit="21" sym="air">飞行模式</value>
+                <value bit="23" sym="super">超级可信</value>
+            </param>
+            <param name="del" typename="Mask32" desc="要删除的标记">
+                <value bit="0" sym="tr">可信的</value>
+                <value bit="1" sym="wl">白名单</value>
+                <value bit="2" sym="bl">黑名单</value>
+                <value bit="3" sym="ps">无提示</value>
+                <value bit="4" sym="rj">遇提示阻断</value>
+                <value bit="5" sym="tc">跟踪</value>
+                <value bit="6" sym="au">审计</value>
+                <value bit="7" sym="pro">被保护的</value>
+                <value bit="9" sym="alert">需要注意的</value>
+                <value bit="10" sym="susp">可疑的</value>
+                <value bit="11" sym="guilty">有罪的</value>
+                <value bit="12" sym="sys">系统</value>
+                <value bit="13" sym="itg">完整性</value>
+                <value bit="14" sym="svcs">服务管理器</value>
+                <value bit="15" sym="pol">已被污染</value>
+                <value bit="16" sym="wow">wow64</value>
+                <value bit="17" sym="ia">交互式</value>
+                <value bit="18" sym="adm">管理员</value>
+                <value bit="19" sym="svc">服务进程</value>
+                <value bit="20" sym="rpcsvr">RPC服务</value>
+                <value bit="21" sym="air">飞行模式</value>
+                <value bit="23" sym="super">超级可信</value>
+            </param>
+        </method>
+        <method name="SetProcessCategory" class="15" desc="更新进程的分类">
+            <param name="add" typename="Mask64" desc="要添加的标记">
+                <value bit="0" sym="exe">exe程序</value>
+                <value bit="1" sym="dll">动态连接库</value>
+                <value bit="2" sym="driver">内核程序</value>
+                <value bit="3" sym="native">本机程序</value>
+                <value bit="4" sym="console">控制台程序</value>
+                <value bit="5" sym="gui">GUI程序</value>
+                <value bit="6" sym="dotnet">.NET框架程序</value>
+                <value bit="7" sym="com">COM接口</value>
+                <value bit="8" sym="critical">系统必须的</value>
+                <value bit="9" sym="codesign">有代码签名的</value>
+                <value bit="10" sym="winos">系统程序</value>
+                <value bit="11" sym="svchost">服务宿主</value>
+                <value bit="12" sym="dllhost">动态库宿主</value>
+                <value bit="13" sym="scripthost">脚本主机</value>
+                <value bit="14" sym="explorer">资源浏览器</value>
+                <value bit="15" sym="sysutil">系统工具</value>
+                <value bit="16" sym="knowndll	">KnownDLLs中指定的</value>
+                <value bit="17" sym="servicedll">服务DLL</value>
+                <value bit="18" sym="secpack">Windows认证包</value>
+                <value bit="19" sym="scr">屏幕保护程序</value>
+                <value bit="20" sym="cpl">控制面板程序</value>
+                <value bit="21" sym="ocx">Active控件</value>
+                <value bit="22" sym="rpcserver">RPC服务</value>
+                <value bit="23" sym="msoffice	">office程序</value>
+                <value bit="24" sym="netcfg">网络配置相关</value>
+                <value bit="25" sym="browser">浏览器</value>
+                <value bit="26" sym="webserver">WEB服务器</value>
+                <value bit="27" sym="mailclient">邮件客户端</value>
+                <value bit="28" sym="remote">远程工具</value>
+                <value bit="29" sym="im">即时通讯</value>
+                <value bit="30" sym="downloader">下载器</value>
+                <value bit="31" sym="internet">互联网应用</value>
+                <value bit="32" sym="defense">防御软件</value>
+                <value bit="33" sym="antivirus">杀毒程序</value>
+                <value bit="34" sym="vpn">VPN程序</value>
+                <value bit="35" sym="patcher">补丁程序</value>
+                <value bit="36" sym="shell">加壳的</value>
+                <value bit="37" sym="vm">虚拟化</value>
+                <value bit="38" sym="cipher">密码程序</value>
+                <value bit="39" sym="installer">安装者</value>
+                <value bit="40" sym="database">数据库</value>
+                <value bit="41" sym="ime">输入法</value>
+                <value bit="42" sym="packager">打包压缩程序</value>
+                <value bit="43" sym="wordproc">字处理</value>
+                <value bit="44" sym="designer">辅助设计程序</value>
+                <value bit="45" sym="imageproc">图像处理程序</value>
+                <value bit="46" sym="picviewer">图片查看程序</value>
+                <value bit="47" sym="builder">编译器</value>
+                <value bit="48" sym="financial">金融相关</value>
+                <value bit="49" sym="ide">集成开发环境</value>
+                <value bit="50" sym="player">多媒体播放器</value>
+                <value bit="51" sym="game">游戏</value>
+                <value bit="52" sym="appstore">应用商店</value>
+                <value bit="53" sym="boot">较早启动的</value>
+                <value bit="54" sym="devdrv">设备驱动</value>
+                <value bit="55" sym="invalidsign">具有无效代码签名的</value>
+                <value bit="56" sym="industry">工业软件</value>
+                <value bit="57" sym="large">超大的可执行文件</value>
+                <value bit="63" sym="self">本防御系统自身的</value>
+            </param>
+            <param name="del" typename="Mask64" desc="要删除的标记">
+                <value bit="0" sym="exe">exe程序</value>
+                <value bit="1" sym="dll">动态连接库</value>
+                <value bit="2" sym="driver">内核程序</value>
+                <value bit="3" sym="native">本机程序</value>
+                <value bit="4" sym="console">控制台程序</value>
+                <value bit="5" sym="gui">GUI程序</value>
+                <value bit="6" sym="dotnet">.NET框架程序</value>
+                <value bit="7" sym="com">COM接口</value>
+                <value bit="8" sym="critical">系统必须的</value>
+                <value bit="9" sym="codesign">有代码签名的</value>
+                <value bit="10" sym="winos">系统程序</value>
+                <value bit="11" sym="svchost">服务宿主</value>
+                <value bit="12" sym="dllhost">动态库宿主</value>
+                <value bit="13" sym="scripthost">脚本主机</value>
+                <value bit="14" sym="explorer">资源浏览器</value>
+                <value bit="15" sym="sysutil">系统工具</value>
+                <value bit="16" sym="knowndll	">KnownDLLs中指定的</value>
+                <value bit="17" sym="servicedll">服务DLL</value>
+                <value bit="18" sym="secpack">Windows认证包</value>
+                <value bit="19" sym="scr">屏幕保护程序</value>
+                <value bit="20" sym="cpl">控制面板程序</value>
+                <value bit="21" sym="ocx">Active控件</value>
+                <value bit="22" sym="rpcserver">RPC服务</value>
+                <value bit="23" sym="msoffice	">office程序</value>
+                <value bit="24" sym="netcfg">网络配置相关</value>
+                <value bit="25" sym="browser">浏览器</value>
+                <value bit="26" sym="webserver">WEB服务器</value>
+                <value bit="27" sym="mailclient">邮件客户端</value>
+                <value bit="28" sym="remote">远程工具</value>
+                <value bit="29" sym="im">即时通讯</value>
+                <value bit="30" sym="downloader">下载器</value>
+                <value bit="31" sym="internet">互联网应用</value>
+                <value bit="32" sym="defense">防御软件</value>
+                <value bit="33" sym="antivirus">杀毒程序</value>
+                <value bit="34" sym="vpn">VPN程序</value>
+                <value bit="35" sym="patcher">补丁程序</value>
+                <value bit="36" sym="shell">加壳的</value>
+                <value bit="37" sym="vm">虚拟化</value>
+                <value bit="38" sym="cipher">密码程序</value>
+                <value bit="39" sym="installer">安装者</value>
+                <value bit="40" sym="database">数据库</value>
+                <value bit="41" sym="ime">输入法</value>
+                <value bit="42" sym="packager">打包压缩程序</value>
+                <value bit="43" sym="wordproc">字处理</value>
+                <value bit="44" sym="designer">辅助设计程序</value>
+                <value bit="45" sym="imageproc">图像处理程序</value>
+                <value bit="46" sym="picviewer">图片查看程序</value>
+                <value bit="47" sym="builder">编译器</value>
+                <value bit="48" sym="financial">金融相关</value>
+                <value bit="49" sym="ide">集成开发环境</value>
+                <value bit="50" sym="player">多媒体播放器</value>
+                <value bit="51" sym="game">游戏</value>
+                <value bit="52" sym="appstore">应用商店</value>
+                <value bit="53" sym="boot">较早启动的</value>
+                <value bit="54" sym="devdrv">设备驱动</value>
+                <value bit="55" sym="invalidsign">具有无效代码签名的</value>
+                <value bit="56" sym="industry">工业软件</value>
+                <value bit="57" sym="large">超大的可执行文件</value>
+                <value bit="63" sym="self">本防御系统自身的</value>
+            </param>
+        </method>
+        <method name="EnterSandbox" action="ps.startup" class="15" desc="使进程进入现有的沙箱，如果没指定，进入新的沙箱">
+            <param name="Name" typename="WideString" desc="沙箱名称"/>
+            <param name="Sandbox" typename="UObject" desc="沙箱ID"/>
+        </method>
+        <method name="EnterNewSandbox" action="ps.startup" class="15" desc="使进程进入一个新建立的沙箱">
+            <param name="SandboxFlags" typename="Mask32" desc="沙箱标记">
+                <value bit="0" sym="log">记录命中的动作</value>
+                <value bit="1" sym="obj">记录变化的对象</value>
+                <value bit="4" sym="fs">文件重定向</value>
+                <value bit="5" sym="reg">注册表重定向</value>
+                <value bit="6" sym="merge">重定向时产生合并视图</value>
+                <value bit="7" sym="air">飞行模式</value>
+                <value bit="15" sym="pre">这是一个预置的沙箱</value>
+            </param>
+            <param name="SecurityFlags" typename="Mask32" desc="安全标记">
+                <value bit="0" sym="tr">可信的</value>
+                <value bit="1" sym="wl">白名单</value>
+                <value bit="2" sym="bl">黑名单</value>
+                <value bit="3" sym="ps">无提示</value>
+                <value bit="4" sym="rj">遇提示阻断</value>
+                <value bit="5" sym="tc">跟踪</value>
+                <value bit="6" sym="au">审计</value>
+                <value bit="7" sym="pro">被保护的</value>
+                <value bit="9" sym="alert">需要注意的</value>
+                <value bit="10" sym="susp">可疑的</value>
+                <value bit="11" sym="guilty">有罪的</value>
+                <value bit="12" sym="sys">系统</value>
+                <value bit="13" sym="itg">完整性</value>
+                <value bit="14" sym="svcs">服务管理器</value>
+                <value bit="15" sym="pol">已被污染</value>
+                <value bit="16" sym="wow">wow64</value>
+                <value bit="17" sym="ia">交互式</value>
+                <value bit="18" sym="adm">管理员</value>
+                <value bit="19" sym="svc">服务进程</value>
+                <value bit="20" sym="rpcsvr">RPC服务</value>
+                <value bit="21" sym="air">飞行模式</value>
+                <value bit="23" sym="super">超级可信</value>
+            </param>
+            <param name="Name" typename="WideString" desc="沙箱名称"/>
+        </method>
+        <method name="SetFileFlags" class="3" desc="更新文件标记">
+            <param name="flags" typename="Mask32" desc="安全标记">
+                <value bit="0" sym="tr">可信的</value>
+                <value bit="1" sym="wl">白名单</value>
+                <value bit="2" sym="bl">黑名单</value>
+                <value bit="3" sym="ps">无提示</value>
+                <value bit="4" sym="rj">遇提示阻断</value>
+                <value bit="5" sym="tc">跟踪</value>
+                <value bit="6" sym="au">审计</value>
+                <value bit="7" sym="pro">被保护的</value>
+                <value bit="9" sym="alert">需要注意的</value>
+                <value bit="10" sym="susp">可疑的</value>
+                <value bit="11" sym="guilty">有罪的</value>
+                <value bit="12" sym="sys">系统</value>
+                <value bit="13" sym="itg">完整性</value>
+                <value bit="14" sym="svcs">服务管理器</value>
+                <value bit="15" sym="pol">已被污染</value>
+                <value bit="16" sym="wow">wow64</value>
+                <value bit="17" sym="ia">交互式</value>
+                <value bit="18" sym="adm">管理员</value>
+                <value bit="19" sym="svc">服务进程</value>
+                <value bit="20" sym="rpcsvr">RPC服务</value>
+                <value bit="21" sym="air">飞行模式</value>
+                <value bit="23" sym="super">超级可信</value>
+            </param>
+        </method>
+        <method name="TraceFile" class="3" desc="跟踪文件">
+            <param name="Flags" typename="Mask32" desc="跟踪标记">
+                <value bit="0" sym="R">跟踪读取</value>
+                <value bit="1" sym="W">跟踪写入</value>
+                <value bit="2" sym="C">关闭</value>
+                <value bit="3" sym="DR">拒绝读取</value>
+                <value bit="4" sym="DW">拒绝写入</value>
+            </param>
+        </method>
+        <method name="TraceDir" class="2" desc="跟踪目录">
+            <param name="bait" typename="Boolean" desc="是否施放诱饵"/>
+        </method>
+        <method name="RedirectFile" desc="重定向文件">
+            <param name="TargetPath" typename="WideString" desc="目标路径"/>
+        </method>
+        <method name="RedirectDir" desc="重定向目录">
+            <param name="TargetPath" typename="WideString" desc="目标路径"/>
+        </method>
+        <method name="CheckInObjects" desc="将客体对象签入">
+            <param name="MakeCreator" typename="Boolean" desc="是否将主体标记为客体的创建者"/>
+        </method>
+        <method name="ResponseValue" action="value.query" desc="应答注册表值">
+            <param name="Type" typename="Enum" desc="注册表值类型">
+                <value num="1" sym="REG_SZ">字符串</value>
+                <value num="2" sym="REG_EXPAND_SZ">可扩展字符串</value>
+                <value num="3" sym="REG_BINARY">二级制</value>
+                <value num="4" sym="REG_DWORD">DWORD</value>
+                <value num="5" sym="REG_DWORD_BIG_ENDIAN">DWORD大端</value>
+                <value num="6" sym="REG_LINK">链接</value>
+                <value num="7" sym="REG_MULTI_SZ">多字符串</value>
+                <value num="8" sym="REG_RESOURCE_LIST">资源链表</value>
+                <value num="9" sym="REG_FULL_RESOURCE_DESCRIPTOR">资源描述符</value>
+                <value num="10" sym="REG_RESOURCE_REQUIREMENTS_LIST">资源要求的链表</value>
+                <value num="11" sym="REG_QWORD">QWORD</value>
+            </param>
+            <param name="Data" typename="Binary" desc="数据"/>
+        </method>
+        <method name="RedirectKey" desc="重定向键">
+            <param name="Source" typename="WideString" desc="源串"/>
+            <param name="Dest" typename="WideString" desc="目标串"/>
+        </method>
+        <method name="HitTechnique" desc="主体对象行为命中ATT-CK">
+            <param name="Tid" typename="Uint16" desc="手段ID"/>
+            <param name="SubId" typename="Uint8" desc="手段子ID"/>
+        </method>
+        <method name="SetSandboxFlags" desc="设置沙箱标志">
+            <param name="flags" typename="Mask32" desc="安全标记">
+                <value bit="0" sym="tr">可信的</value>
+                <value bit="1" sym="wl">白名单</value>
+                <value bit="2" sym="bl">黑名单</value>
+                <value bit="3" sym="ps">无提示</value>
+                <value bit="4" sym="rj">遇提示阻断</value>
+                <value bit="5" sym="tc">跟踪</value>
+                <value bit="6" sym="au">审计</value>
+                <value bit="7" sym="pro">被保护的</value>
+                <value bit="9" sym="alert">需要注意的</value>
+                <value bit="10" sym="susp">可疑的</value>
+                <value bit="11" sym="guilty">有罪的</value>
+                <value bit="12" sym="sys">系统</value>
+                <value bit="13" sym="itg">完整性</value>
+                <value bit="14" sym="svcs">服务管理器</value>
+                <value bit="15" sym="pol">已被污染</value>
+                <value bit="16" sym="wow">wow64</value>
+                <value bit="17" sym="ia">交互式</value>
+                <value bit="18" sym="adm">管理员</value>
+                <value bit="19" sym="svc">服务进程</value>
+                <value bit="20" sym="rpcsvr">RPC服务</value>
+                <value bit="21" sym="air">飞行模式</value>
+                <value bit="23" sym="super">超级可信</value>
+            </param>
+        </method>
+        <method name="SetFileMatrix" action="file.written" class="3" desc="设置文件的矩阵">
+            <param name="Tid" typename="Uint16" desc="手段ID"/>
+            <param name="SubId" typename="Uint8" desc="手段子ID"/>
+        </method>
+        <method name="ObjectHitTechnique" desc="客体对象行为命中ATTCK">
+            <param name="Tid" typename="Uint16" desc="手段ID"/>
+            <param name="SubId" typename="Uint8" desc="手段子ID"/>
+        </method>
+        <method name="TraceConnect" desc="跟踪网络连接（开启net.data）">
+            <param name="Counter" typename="Uint8" desc="指定跟踪的包数量(0表示"/>
+        </method>
+        <method name="StartNetAnalyze" desc="开始网络分析"/>
+        <method name="InjectAleStream" desc="注入ALE层的流数据">
+            <param name="Data" typename="Binary" desc="数据"/>
+            <param name="Flags" typename="Mask32" desc="标记">
+                <value bit="0" sym="recv">入站</value>
+                <value bit="1" sym="r_exp">紧急</value>
+                <value bit="2" sym="r_fin">完成(FIN)</value>
+                <value bit="3" sym="r_abort">复位(RST)</value>
+                <value bit="4" sym="r_push">无延迟（PSH）</value>
+                <value bit="16" sym="send">出站</value>
+                <value bit="17" sym="s_exp">紧急</value>
+                <value bit="18" sym="s_nodelay">无缓冲</value>
+                <value bit="19" sym="s_fin">完成(FIN)</value>
+                <value bit="20" sym="s_abort">复位（RST）</value>
+            </param>
+        </method>
+        <method name="InjectAleString" desc="向ALE的流注入字符串">
+            <param name="String" typename="String" desc="字符串"/>
+            <param name="Flags" typename="Mask32" desc="标记">
+                <value bit="0" sym="recv">入站</value>
+                <value bit="1" sym="r_exp">紧急</value>
+                <value bit="2" sym="r_fin">完成(FIN)</value>
+                <value bit="3" sym="r_abort">复位(RST)</value>
+                <value bit="4" sym="r_push">无延迟（PSH）</value>
+                <value bit="16" sym="send">出站</value>
+                <value bit="17" sym="s_exp">紧急</value>
+                <value bit="18" sym="s_nodelay">无缓冲</value>
+                <value bit="19" sym="s_fin">完成(FIN)</value>
+                <value bit="20" sym="s_abort">复位（RST）</value>
+            </param>
+        </method>
+        <method name="InjectPort" desc="注入传输层数据">
+            <param name="Data" typename="Binary" desc="数据"/>
+            <param name="Outgoing" typename="Boolean" desc="发送"/>
+        </method>
+        <method name="InjectPacket" desc="注入IP报文">
+            <param name="Data" typename="Binary" desc="数据"/>
+            <param name="Outgoing" typename="Boolean" desc="发送"/>
+        </method>
+        <method name="SetupClassFilter" action="dev.preload" desc="安装类过滤器">
+            <param name="Driver" typename="WideString" desc="过滤器的驱动名"/>
+            <param name="Exclusive" typename="Boolean" desc="是否独占（排除其它的过滤器）"/>
+        </method>
+        <method name="HookClassDevice" action="dev.add" class="19" desc="挂钩类设备">
+            <param name="tagid" typename="Uint32" desc="调用者指定的标记ID，后续的过滤操作可凭此区分"/>
+            <param name="scsi" typename="Boolean" desc="是否过滤SCSI指令"/>
+            <param name="internal" typename="Boolean" desc="是否内部IO"/>
+            <param name="devio" typename="Boolean" desc="是否过滤设备IO"/>
+        </method>
+        <method name="HookDevice" desc="挂钩设备">
+            <param name="DeviceName" typename="WideString" desc="设备名，例如\Device\Nsi"/>
+            <param name="tagid" typename="Uint32" desc="调用者指定的标记ID，后续的过滤操作可凭此区分"/>
+        </method>
+        <method name="UnhookDevice" desc="解除设备挂钩">
+            <param name="DeviceName" typename="WideString" desc="设备名，例如\Device\Nsi"/>
+        </method>
+        <method name="ResponseIoData" action="dev.io" desc="应答IO输出数据">
+            <param name="Data" typename="Binary" desc="数据"/>
+        </method>
+        <method name="ReplaceInputData" action="dev.io" desc="替换输入的数据">
+            <param name="Offset" typename="Uint16" desc="偏移"/>
+            <param name="Type" typename="Enum" desc="转义的类型">
+                <value num="1" sym="byte">字节</value>
+                <value num="2" sym="word">16位整数</value>
+                <value num="4" sym="dword">32位整数</value>
+                <value num="8" sym="qword">64位整数</value>
+                <value num="130" sym="word_be">大端16位整数</value>
+                <value num="132" sym="dword_be">大端32位整数</value>
+                <value num="136" sym="qword_be">大端64位整数</value>
+            </param>
+            <param name="Op" typename="Enum" desc="运算符">
+                <value num="0" sym="set">替换</value>
+                <value num="1" sym="add">加</value>
+                <value num="2" sym="sub">减</value>
+                <value num="3" sym="mul">乘</value>
+                <value num="5" sym="bitand">按位与</value>
+                <value num="6" sym="bitor">按位或</value>
+                <value num="7" sym="xor">异或</value>
+                <value num="8" sym="lshift">左移</value>
+                <value num="9" sym="rshift">右移</value>
+            </param>
+            <param name="Value" typename="Uint64" desc="操作数"/>
+        </method>
+        <method name="ReplaceOutputData" action="dev.io_comp" desc="替换输出的数据">
+            <param name="Offset" typename="Uint16" desc="偏移"/>
+            <param name="Type" typename="Enum" desc="转义的类型">
+                <value num="1" sym="byte">字节</value>
+                <value num="2" sym="word">16位整数</value>
+                <value num="4" sym="dword">32位整数</value>
+                <value num="8" sym="qword">64位整数</value>
+                <value num="130" sym="word_be">大端16位整数</value>
+                <value num="132" sym="dword_be">大端32位整数</value>
+                <value num="136" sym="qword_be">大端64位整数</value>
+            </param>
+            <param name="Op" typename="Enum" desc="运算符">
+                <value num="0" sym="set">替换</value>
+                <value num="1" sym="add">加</value>
+                <value num="2" sym="sub">减</value>
+                <value num="3" sym="mul">乘</value>
+                <value num="5" sym="bitand">按位与</value>
+                <value num="6" sym="bitor">按位或</value>
+                <value num="7" sym="xor">异或</value>
+                <value num="8" sym="lshift">左移</value>
+                <value num="9" sym="rshift">右移</value>
+            </param>
+            <param name="Value" typename="Uint64" desc="操作数"/>
+        </method>
+        <method name="ReplaceScsiData" action="dev.scsi_comp" desc="替换SCSI输出的数据">
+            <param name="Offset" typename="Uint16" desc="偏移"/>
+            <param name="Type" typename="Enum" desc="转义的类型">
+                <value num="1" sym="byte">字节</value>
+                <value num="2" sym="word">16位整数</value>
+                <value num="4" sym="dword">32位整数</value>
+                <value num="8" sym="qword">64位整数</value>
+                <value num="130" sym="word_be">大端16位整数</value>
+                <value num="132" sym="dword_be">大端32位整数</value>
+                <value num="136" sym="qword_be">大端64位整数</value>
+            </param>
+            <param name="Op" typename="Enum" desc="运算符">
+                <value num="0" sym="set">替换</value>
+                <value num="1" sym="add">加</value>
+                <value num="2" sym="sub">减</value>
+                <value num="3" sym="mul">乘</value>
+                <value num="5" sym="bitand">按位与</value>
+                <value num="6" sym="bitor">按位或</value>
+                <value num="7" sym="xor">异或</value>
+                <value num="8" sym="lshift">左移</value>
+                <value num="9" sym="rshift">右移</value>
+            </param>
+            <param name="Value" typename="Uint64" desc="操作数"/>
+        </method>
+    </methods>
+</body>

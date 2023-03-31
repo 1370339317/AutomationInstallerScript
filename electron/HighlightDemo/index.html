@@ -5,9 +5,18 @@
     <title>Hello World!</title>
     <script src="./node_modules/requirejs/require.js"></script>
     <link rel="stylesheet" type="text/css" href="./node_modules/monaco-editor/min/vs/editor/editor.main.css">
+    <link rel="stylesheet" href="./Styles.css" >
   </head>
   <body>
-    <div id="container" style="height: 500px; width: 800px"></div>
-    <script src="renderer.js"></script>
+    <div class="containerdiv">
+      <div class="left" id="container"></div>
+      <div class="right" id="readcontainer"></div>
+    </div>
+    <button id="myButton">Click me!</button>
+    <script src="./node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="./node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="./node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script type="module" src="LoadSchema.js"></script>
+    <script type="module" src="renderer.js"></script>
   </body>
 </html>
