@@ -13,5 +13,7 @@
 
 <font color=red>新的订阅地址为：</font>[http://127.0.0.1:8000/?emai=你的邮箱&pass=密码](http://127.0.0.1:8000/?emai=你的邮箱&pass=密码)
 
+<font color=red>我自己的：</font>[https://d2uklxo7cphxsr.cloudfront.net/wogame?emai=你的邮箱&pass=密码](https://d2uklxo7cphxsr.cloudfront.net/wogame?emai=你的邮箱&pass=密码)
+
 <table><tr><td bgcolor=orange>-----------------------------</td></tr></table>
 
