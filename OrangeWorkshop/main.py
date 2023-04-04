@@ -17,7 +17,6 @@ import re
 import http.server
 import socketserver
 
-
 def Getfake(email, password):
     conn = http.client.HTTPSConnection("wogame.co")
     payload = f"email={email}&password={password}"
@@ -35,9 +34,23 @@ def Getfake(email, password):
     res = conn.getresponse()
     data = res.read()
     
-    auth_data = json.loads(data.decode("utf-8"))['data']['auth_data']
-    print(auth_data)
+    jsobj=json.loads(data.decode("utf-8"))
+
+    js_token = jsobj['data']['token']
+    print(js_token)
+
+    tokenurl="/api/v1/client/subscribe?token="+js_token
+    if js_token:
+        con1=http.client.HTTPSConnection("wogame.fhlsep.cn")
+        con1.request("GET", tokenurl, headers=headers)
+        res = con1.getresponse()
+        data = res.read()
+        ret=data.decode("utf-8")
+        if ret:
+            return ret
     
+    auth_data = jsobj['data']['auth_data']
+    print(js_token)
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': auth_data,
@@ -51,21 +64,21 @@ def Getfake(email, password):
     
     res = conn.getresponse()
     data = res.read()
-    
     js_body = json.loads(data.decode("utf-8"))['data']['body']
-    
+
     result = re.search(r'https://.*?token=[^\']*', js_body)
     if result:
         resulturl=result.group(0)
-    
+    else:
+        print("errr:"+js_body)
     conn.request("GET", resulturl, headers=headers)
     
     res = conn.getresponse()
     data = res.read()
     
     ret=data.decode("utf-8")
-    if ret.count==0:
-        return Getfake(email, password)
+    print("body:"+ret)
+    
     return ret
 
 
@@ -83,7 +96,6 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             pass
 
 PORT = 8000
-
 with socketserver.TCPServer(("0.0.0.0", PORT), MyHandler) as httpd:
     print("serving at port", PORT)
     httpd.serve_forever()
