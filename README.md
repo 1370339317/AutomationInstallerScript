@@ -9,6 +9,7 @@
 * **定时神器,青龙面板**：****[青龙面板](./qinglong/readme.md)****
 * **Debin 安装py**：****[python3.8安装](https://2fwww.dandelioncloud.cn/article/details/1579132111531765761)****
 * **Nginx 基本教程**：****[Nginx代理](https://blog.huati365.com/7d6c4028d1f24d07)****
+* **同一台电脑同时使用gitHub和gitLab**：****[git配置](https://www.bbsmax.com/A/QW5Y7oOMzm/)****
 
 一些有趣的小工具
 
