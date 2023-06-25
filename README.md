@@ -14,3 +14,8 @@
 一些有趣的小工具
 
 * **OrangeWorkshop机场自动订阅**：****[Orange](./OrangeWorkshop/readme.md)****
+
+各种工具集合
+* **Redis数据管理可视化工具**：****[AnotherRedis](https://github.com/qishibo/AnotherRedisDesktopManager)****
+* **微软商店的开发者工具**：****[DevToys Git](https://github.com/veler/DevToys) [DevToys 微软商店](https://www.microsoft.com/store/apps/9PGCV4V3BK4W)****
+* **RUST 程序**：****[Start Rust](https://learn.microsoft.com/zh-cn/training/modules/rust-create-program/)****
