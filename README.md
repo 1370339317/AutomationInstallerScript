@@ -20,6 +20,7 @@
 * **微软商店的开发者工具**：****[DevToys Git](https://github.com/veler/DevToys) [DevToys 微软商店](https://www.microsoft.com/store/apps/9PGCV4V3BK4W)****
 * **RUST 学习**：****[Start Rust](https://learn.microsoft.com/zh-cn/training/modules/rust-create-program/)****
 * **思维导图**：****[Xmind](https://xmind.cn/)****
+* **burpsuite 爆破工具**：****[burpsuite](https://portswigger.net/burp)****
 
 各种资源
 * **CLOUDFLARE'白嫖梯子**：****[CLOUDFLARE ](https://1.1.1.1/)****
