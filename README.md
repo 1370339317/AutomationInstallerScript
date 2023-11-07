@@ -5,6 +5,7 @@
 
 各种有意思的配置教程
 
+* **QuickJs编译及JS调试**：****[QuickJs&&Debug](./QuickJs/readme.md)****
 * **Zerotier 虚拟组网**：****[Zerotier Moon](./ZerotierWithMoon/readme.md)****
 * **定时神器,青龙面板**：****[青龙面板](./qinglong/readme.md)****
 * **Debin 安装py**：****[python3.8安装](https://2fwww.dandelioncloud.cn/article/details/1579132111531765761)****

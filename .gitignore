@@ -11,3 +11,4 @@
 /emscripten/testdemo/a.out.wasm
 /emscripten/1.test_helloworld/a.out.wasm
 /emscripten/1.test_helloworld/a.out.js
+/.vs/slnx.sqlite-journal
